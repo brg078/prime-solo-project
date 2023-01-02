@@ -9,7 +9,6 @@ import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
 //import { red } from '@material-ui/core/colors';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
-
 // This is one of our simplest components
 // It doesn't have local state, so it can be a function component.
 // It doesn't dispatch any redux actions or display any part of redux state
@@ -21,15 +20,15 @@ function Footer() {
 
   return (
     <div className='footer'>
-    <ThemeProvider theme={theme}>
-    <AppBar position="static">
-        <Toolbar variant="dense">
-          <Typography variant="h6" color="secondary" component="div" >
-            <h2>Asking for a Friend!</h2>
-          </Typography>
-        </Toolbar>
-      </AppBar>
-    </ThemeProvider>
+      <ThemeProvider theme={theme}>
+          <AppBar position="static" bottom="0">
+            <Toolbar>
+              <Typography color="secondary" backgroundcolor="primary" >
+                Asking for a Friend!
+              </Typography>
+              </Toolbar>
+          </AppBar>
+      </ThemeProvider>
     </div>
   )
 }
