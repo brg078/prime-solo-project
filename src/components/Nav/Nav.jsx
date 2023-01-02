@@ -18,23 +18,27 @@ function Nav() {
       <ThemeProvider theme={theme}>
       <AppBar position="static">
         <Toolbar variant="dense">
-          <IconButton edge="start" color="secondary" aria-label="menu" sx={{ mr: 2 }}>
+          {/* <IconButton edge="start" color="secondary" aria-label="menu" sx={{ mr: 2 }}>
             <MenuIcon />
-          </IconButton>
+          </IconButton> */}
           <Typography variant="h6" color="secondary" component="div" >
-            ADD NAV BAR OFF THIS header!
+            {/* //ADD NAV BAR OFF THIS header! */}
+            <Link to="/home">
+            <h2 className="nav-title">Asking for a Friend!</h2>
+            </Link>
           </Typography>
-                  {/* If a user is logged in, show these links */}
+          <Link className="navLink" to="/about">
+          About
+          </Link>
+          {/* If a user is logged in, show these links */}
           {user.id && (
             <>
               <Link className="navLink" to="/user">
                 Home
               </Link>
-
               <Link className="navLink" to="/info">
                 Info Page
               </Link>
-
               <LogOutButton className="navLink" />
             </>
           )}
@@ -53,7 +57,7 @@ function Nav() {
         )}
 
         {/* If a user is logged in, show these links */}
-        {user.id && (
+        {/* {user.id && (
           <>
             <Link className="navLink" to="/user">
               Home
@@ -65,7 +69,7 @@ function Nav() {
 
             <LogOutButton className="navLink" />
           </>
-        )}
+        )} */}
 
         <Link className="navLink" to="/about">
           About
