@@ -20,10 +20,12 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import Questions from '../Questions/Questions';
+import ListOfQuestions from '../ListOfQuestions/ListOfQuestions';
 
 import { ThemeProvider } from '@emotion/react';
 import theme from '../../theme';
 import './App.css';
+import { List } from '@material-ui/core';
 
 function App() {
   const dispatch = useDispatch();
@@ -70,6 +72,14 @@ function App() {
             path="/questions"
           >
             <Questions />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows UserPage else shows LoginPage
+            exact
+            path="/list"
+          >
+            <ListOfQuestions />
           </ProtectedRoute>
 
           <ProtectedRoute

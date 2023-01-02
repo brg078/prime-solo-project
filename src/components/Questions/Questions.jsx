@@ -2,11 +2,13 @@ import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {useSelector} from 'react-redux';
+import { useHistory } from 'react-router-dom';
+
 
 function Questions(){
 
     const user = useSelector((store) => store.user);
-
+    const history = useHistory();
     const dispatch = useDispatch();
     const [question, setQuestion] = useState('');
     const handleChange = (event) => {
@@ -17,6 +19,12 @@ function Questions(){
         console.log('in submitQuestions!',question, user.id);
         dispatch({type: 'ADD_QUESTION', id: user.id, payload: question});
     }
+
+    function goToQuestionList(){
+        console.log('in goToQuestionList!');
+        history.push('/list');
+    }
+
 
     return(
         <div className='questionsPage'>
@@ -29,6 +37,9 @@ function Questions(){
                     onChange={handleChange}
                 />
                 <button onClick={submitQuestion}>Submit Question</button>
+            </p>
+            <p>
+                <button onClick={goToQuestionList}>Go to all Questions</button>
             </p>
         </div>
     )
