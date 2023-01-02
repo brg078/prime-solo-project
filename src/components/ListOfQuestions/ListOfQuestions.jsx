@@ -1,20 +1,30 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 //import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-//import {useSelector} from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import rootReducer from '../../redux/reducers/_root.reducer';
+//import { useHistory } from 'react-router-dom';
 
 
 function ListOfQuestions(){
-    //const user = useSelector((store) => store.user);
-    const history = useHistory();
+    //const history = useHistory();
     const dispatch = useDispatch();
+    const questions = useSelector(store => store.questionList);
+
+    useEffect(() => {
+        getQuestions();
+    }, []);
+
+    const getQuestions = () => {
+        dispatch({type: 'FETCH_QUESTIONS'});
+        console.log('dom side question store', questions);
+    }
 
     return (
         <div>
             <h2>List</h2>
+            <p>{JSON.stringify(questions)}</p>
+            <button onClick={getQuestions}>Get Questions List</button>
             
-
         </div>
     )
 }
