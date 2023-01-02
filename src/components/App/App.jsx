@@ -19,6 +19,7 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import Questions from '../Questions/Questions';
 
 import { ThemeProvider } from '@emotion/react';
 import theme from '../../theme';
@@ -61,6 +62,14 @@ function App() {
             path="/user"
           >
             <UserPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows UserPage else shows LoginPage
+            exact
+            path="/questions"
+          >
+            <Questions />
           </ProtectedRoute>
 
           <ProtectedRoute
