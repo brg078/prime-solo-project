@@ -14,10 +14,13 @@ function ListItemQuestion(props) {
         
     function deleteQuestion(){
         console.log('in deleteQuestion!',question.id);
-        //alert('Are you sure you want to delete ADD ALERT LATER?');
-        dispatch({
-            type: 'DELETE_QUESTION', payload: question.id
-        });
+        if (confirm('Are you sure you want to delete this question?') == true){;
+            dispatch({
+                type: 'DELETE_QUESTION', payload: question.id
+            });
+        } else {
+            console.log('cancel DELETE!');
+        }
     }
 
 
