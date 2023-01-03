@@ -24,10 +24,21 @@ function* fetchQuestions(){
     }
 }
 
+function* deleteQuestion(action){
+    console.log('in DELETE DELETE_QUESTION SAGA!', action.payload);
+    try {
+        yield axios.delete(`/question/${action.payload}`);
+        yield put ({type: 'FETCH_QUESTIONS'});
+    } catch(error) {
+        console.log('error fetching questions', error);
+    }
+}
+
 
 function* questionSaga(){
     yield takeLatest('ADD_QUESTION', addQuestion);
     yield takeLatest('FETCH_QUESTIONS', fetchQuestions);
+    yield takeLatest('DELETE_QUESTION', deleteQuestion)
 }
 
 

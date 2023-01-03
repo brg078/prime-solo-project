@@ -14,7 +14,7 @@ function ListItemQuestion(props) {
         
     function deleteQuestion(){
         console.log('in deleteQuestion!',question.id);
-        alert('Are you sure you want to delete ADD ALERT LATER?');
+        //alert('Are you sure you want to delete ADD ALERT LATER?');
         dispatch({
             type: 'DELETE_QUESTION', payload: question.id
         });
