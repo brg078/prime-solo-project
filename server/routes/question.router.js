@@ -5,7 +5,8 @@ const router = express.Router();
 router.get('/', (req, res) => {
   console.log('in server side GET wack question router!');
   //will update this query to reflect student name not just ID with a JOIN
-  const queryText = 'SELECT "user".username, questions.question FROM questions JOIN "user" ON "user".id = questions.student_id;'
+  const queryText = `SELECT "user".username, questions.id, questions.question, questions.flagged, questions.approved FROM questions
+                      JOIN "user" ON "user".id = questions.student_id;`
   pool.query(queryText)
     .then((result) => { res.send(result.rows)})
     .catch((error) =>{
