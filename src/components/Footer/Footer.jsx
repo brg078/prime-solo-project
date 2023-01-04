@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     bottom: 0,
     color: amber[500],
     background: deepPurple[500],
-    border: 'blue'
+    //border: 'blue'
   },
   typo: {
     flexGrow: 1,
@@ -22,9 +22,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Footer() {
   const classes = useStyles();
-
-
-
   return (
     
     <React.Fragment>
@@ -40,6 +37,3 @@ export default function Footer() {
     
   );
 }
-
-
-{/* sx={{ position: 'fixed', bgcolor: deepPurple[500], color:amber[500], bottom: 0, left: 0, right: 0 }} elevation={3} */}
