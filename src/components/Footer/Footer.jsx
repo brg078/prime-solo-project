@@ -1,36 +1,45 @@
 import React from 'react';
-import './Footer.css';
-import { AppBar, Container, ThemeProvider, Toolbar, Typography} from '@material-ui/core';
-import { useTheme } from '@emotion/react';
-import Paper from '@material-ui/core/Paper';
-//import Paper from '@mui/material/Paper';
-import Box from '@material-ui/core/Box';
-import Grid from '@material-ui/core/Grid';
-import Link from '@material-ui/core/Link';
-//import { red } from '@material-ui/core/colors';
-import BottomNavigation from '@material-ui/core/BottomNavigation';
-// This is one of our simplest components
-// It doesn't have local state, so it can be a function component.
-// It doesn't dispatch any redux actions or display any part of redux state
-// or even care what the redux state is, so it doesn't need 'connect()'
+import { deepPurple,amber } from '@material-ui/core/colors';
+import { Typography } from '@material-ui/core';
+import AppBar from '@material-ui/core/AppBar';
+import {makeStyles} from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Toolbar from '@material-ui/core/Toolbar';
 
-function Footer() {
-  const theme = useTheme();
+const useStyles = makeStyles((theme) => ({
+  appBar: {
+    top: "auto",
+    bottom: 0,
+    color: amber[500],
+    background: deepPurple[500],
+    border: 'blue'
+  },
+  typo: {
+    flexGrow: 1,
+    textAlign: "center"
+  }
+}));
+
+export default function Footer() {
+  const classes = useStyles();
+
 
 
   return (
-    <div className='footer'>
-      <ThemeProvider theme={theme}>
-          <AppBar position="static" bottom="0">
-            <Toolbar>
-              <Typography color="secondary" backgroundcolor="primary" >
-                Asking for a Friend!
-              </Typography>
-              </Toolbar>
-          </AppBar>
-      </ThemeProvider>
-    </div>
-  )
+    
+    <React.Fragment>
+      <CssBaseline/>
+      <AppBar className={classes.appBar} >
+        <Toolbar>
+          <Typography className={classes.typo}>
+            Asking for a friend!
+          </Typography>
+        </Toolbar>
+      </AppBar>
+    </React.Fragment>
+    
+  );
 }
 
-export default Footer;
+
+{/* sx={{ position: 'fixed', bgcolor: deepPurple[500], color:amber[500], bottom: 0, left: 0, right: 0 }} elevation={3} */}
