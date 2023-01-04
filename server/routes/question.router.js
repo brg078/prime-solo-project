@@ -6,7 +6,9 @@ const router = express.Router();
 router.get('/', (req, res) => {
   console.log('in server side GET wack question router!');
   const queryText = `SELECT "user".username, questions.id, questions.question, questions.flagged, questions.approved FROM questions
-                      JOIN "user" ON "user".id = questions.student_id;`
+                      JOIN "user" ON "user".id = questions.student_id
+                      WHERE questions.archived = false
+                      ORDER BY questions.id;`
   
   pool.query(queryText)
     .then((result) => { res.send(result.rows)})

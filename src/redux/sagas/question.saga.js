@@ -24,6 +24,7 @@ function* fetchQuestions(){
     }
 }
 
+
 function* deleteQuestion(action){
     console.log('in DELETE DELETE_QUESTION SAGA!', action.payload);
     try {
@@ -35,10 +36,35 @@ function* deleteQuestion(action){
 }
 
 
+function* approveQuestion(action){
+    console.log('in APPROVE_QUESTION SAGA',action.payload);
+    try {
+        yield axios.put(`/approve/approve/${action.payload}`);
+        yield put ({type: 'FETCH_QUESTIONS'});
+    } catch(error) {
+        console.log('error in put approve', error);
+    }
+}
+
+
+function* flagQuestion(action){
+    console.log('in FLAG_QUESTION SAGA',action.payload);
+    try {
+        yield axios.put(`/approve/flag/${action.payload}`);
+        yield put ({type: 'FETCH_QUESTIONS'});
+    } catch(error) {
+        console.log('error in put flag', error);
+    }
+}
+
+
+
 function* questionSaga(){
     yield takeLatest('ADD_QUESTION', addQuestion);
     yield takeLatest('FETCH_QUESTIONS', fetchQuestions);
-    yield takeLatest('DELETE_QUESTION', deleteQuestion)
+    yield takeLatest('DELETE_QUESTION', deleteQuestion);
+    yield takeLatest('APPROVE_QUESTION', approveQuestion);
+    yield takeLatest('FLAG_QUESTION', flagQuestion)
 }
 
 
