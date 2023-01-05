@@ -33,6 +33,22 @@ router.put('/flag/:id', (req, res) => {
 })
 
 
+router.put('/asked/:id', (req, res) => {
+    const id = req.params.id;
+    const idAsk = req.body.askId;
+    console.log('in PUT asked router',id,idAsk);
+    const queryText = `UPDATE questions SET asker_id = $2, archived = true WHERE id = $1;`;
+    const queryValues = [id, idAsk];
+
+    pool.query(queryText,queryValues)
+    .then(() => {res.sendStatus(200) })
+    .catch((error) => {
+        console.log('Error in UPDATE server approve', error);
+        res.sendStatus(500);
+    })
+})
+
+
 
 
 

@@ -58,13 +58,25 @@ function* flagQuestion(action){
 }
 
 
+function* askedQuestion(action){
+    console.log('in ASKED_QUESTION SAGA',action.id,action.payload);
+    try {
+        yield axios.put(`/approve/asked/${action.id}`,{askId:action.payload});
+        yield put ({type: 'FETCH_QUESTIONS'});
+    } catch(error) {
+        console.log('error in put asked', error);
+    }
+}
+
+
 
 function* questionSaga(){
     yield takeLatest('ADD_QUESTION', addQuestion);
     yield takeLatest('FETCH_QUESTIONS', fetchQuestions);
     yield takeLatest('DELETE_QUESTION', deleteQuestion);
     yield takeLatest('APPROVE_QUESTION', approveQuestion);
-    yield takeLatest('FLAG_QUESTION', flagQuestion)
+    yield takeLatest('FLAG_QUESTION', flagQuestion);
+    yield takeLatest('ASKED_QUESTION', askedQuestion)
 }
 
 

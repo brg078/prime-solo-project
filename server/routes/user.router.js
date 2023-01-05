@@ -47,4 +47,16 @@ router.post('/logout', (req, res) => {
   res.sendStatus(200);
 });
 
+router.get('/userslist', (req, res) => {
+  console.log('in server side GET wack userslist router!');
+  const queryText = `SELECT "id","username" FROM "user"`
+
+  pool.query(queryText)
+  .then((result) => { res.send(result.rows)})
+  .catch((error) =>{
+  console.log('Error server GET userslist select query',error);
+  res.sendStatus(500);
+  });
+})
+
 module.exports = router;

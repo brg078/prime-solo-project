@@ -24,8 +24,22 @@ function* fetchUser() {
   }
 }
 
+
+function* fetchUsers(){
+  console.log('in GET FETCH_USERS SAGA!');
+
+  try {
+    const response = yield axios.get('/api/user/userslist');
+    console.log ('yield get from server userslist', response.data);
+    yield put ({type: 'SET_USERS', payload: response.data});
+} catch(error) {
+    console.log('error fetching questions', error);
+}
+}
+
 function* userSaga() {
   yield takeLatest('FETCH_USER', fetchUser);
+  yield takeLatest('FETCH_USERS', fetchUsers);
 }
 
 export default userSaga;
