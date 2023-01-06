@@ -6,20 +6,16 @@ import { ThemeProvider, withStyles} from '@material-ui/core';
 import { useTheme } from '@emotion/react';
 import './Nav.css';
 import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
+
 import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
+
 import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
+
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
-import { amber,deepPurple } from '@mui/material/colors';
-import { red } from '@material-ui/core/colors';
+
+import { amber,deepPurple,cyan } from '@mui/material/colors';
+
+
 
 
 const AmberTextTypography = withStyles({
@@ -27,9 +23,9 @@ const AmberTextTypography = withStyles({
     color: amber[500],
     letterSpacing: '0.2rem',
     textDecoration: 'none',
-    // outline: '1px',
-    // outlineColor: 'white',
-    padding: '1rem'
+    padding: '1rem',
+    '&:hover': {backgroundColor: deepPurple[600], color: cyan[400] },
+    '&:active': {transform: "scale3d(1.05, 1.05, 1)"}
 
   }
 })(Typography);
@@ -50,34 +46,31 @@ function Nav() {
               <AmberTextTypography variant="h4" component="a" noWrap href='/home'>
                 ASKING FOR A FRIEND!
               </AmberTextTypography>
-              <AmberTextTypography variant="h6" component="a" noWrap href='/home'>
-                HOME
-              </AmberTextTypography>
-              <AmberTextTypography variant="h6" component="a" noWrap href='/info'>
-                INFO
-              </AmberTextTypography>
-              <AmberTextTypography className='navLink' variant="h6" component="a" noWrap href='/about'>
-                ABOUT
-              </AmberTextTypography>
-              <AmberTextTypography className='navLink' variant="h6" component="a" noWrap href='/info'>
-                LOGOUT
-              </AmberTextTypography>
-
-
               <Link className="navLink" to="/about">
+                <AmberTextTypography>
                   About
+                </AmberTextTypography>
               </Link>
               {user.id && (
-                  <>
-                    <Link className="navLink" to="/user">
+                <>
+                  <Link className="navLink" to="/user">
+                    <AmberTextTypography>
                       Home
-                    </Link>
-                    <Link className="navLink" to="/info">
-                      Info Page
-                    </Link>
-                    <LogOutButton className="navLink" />
-                  </>
-                  )}
+                    </AmberTextTypography>
+                  </Link>
+
+                  <Link className="navLink" to="/info">
+                    <AmberTextTypography>
+                      App Info
+                    </AmberTextTypography>
+                  </Link>
+
+
+
+                  <LogOutButton className="navLink" />
+                    
+                </>
+              )}
 
 
 

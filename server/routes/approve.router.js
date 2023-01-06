@@ -49,6 +49,18 @@ router.put('/asked/:id', (req, res) => {
 })
 
 
+router.put('/archiveall', (req, res) => {
+    console.log('in PUT archive all router');
+    const queryText = `UPDATE questions SET archived = true  WHERE archived = false;`;
+
+    pool.query(queryText)
+    .then(() => {res.sendStatus(200) })
+    .catch((error) => {
+        console.log('Error in UPDATE server approve', error);
+        res.sendStatus(500);
+    })
+})
+
 
 
 

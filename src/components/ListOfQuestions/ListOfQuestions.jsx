@@ -38,7 +38,7 @@ function ListOfQuestions(){
     const history = useHistory();
     const dispatch = useDispatch();
     const questions = useSelector(store => store.questionList);
-    const usersList = useSelector(store => store.usersListReducer);
+    //const usersList = useSelector(store => store.usersListReducer);
 
     useEffect(() => {
         getQuestions();
@@ -46,26 +46,24 @@ function ListOfQuestions(){
     }, []);
 
     function userList(){
-        dispatch({
-            type: 'FETCH_USERS'
-        });
-
-    
-}
+        dispatch({type: 'FETCH_USERS'});  
+    }
 
     const getQuestions = () => {
         dispatch({type: 'FETCH_QUESTIONS'});
         console.log('dom side question store', questions);
     }
 
-    const pushQuestions = () => {
-        console.log('in pushQuestions!');
+    const archiveQuestions = () => {
+        console.log('in archiveQuestions!');
+        dispatch({type: 'ARCHIVE_QUESTIONS'});
     }
 
     const returnToAskQuestions = () => {
         console.log('in returnToAskQuestions!');
         history.push('/questions');
     }
+
 //: GridColDef[] am i going to need this?
     const columns = [
         {
@@ -211,11 +209,11 @@ function ListOfQuestions(){
             <Box sx={{padding: '40px', width: '90%', justifyContent: 'center', margin: 'auto', display: 'flex' }}>
                 <button onClick={getQuestions}>Refresh Questions List</button>
                 <button onClick={returnToAskQuestions}>Add Questions</button>
-                <button onClick={pushQuestions}>End Session</button>
+                <button onClick={archiveQuestions}>End Session</button>
             </Box>
 
 
-            <p>{JSON.stringify(usersList)}</p>
+            {/* <p>{JSON.stringify(usersList)}</p> */}
         </div>
     )
 }
