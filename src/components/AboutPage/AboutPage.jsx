@@ -1,13 +1,11 @@
 import React from 'react';
-import { ThemeProvider, Typography, Card, Container } from '@material-ui/core';
-import { useTheme } from '@emotion/react';
-//import { bgcolor } from '@mui/system';
-//import Card from '@material-ui/core';
-import CardActions from '@material-ui/core';
-import CardContent from '@mui/material/CardContent';
-import { Block } from '@material-ui/icons';
-import { sizing } from '@mui/system';
+//import { ThemeProvider, Typography, Card, Container } from '@material-ui/core';
+//import { useTheme } from '@emotion/react';
+//import { Block } from '@material-ui/icons';
+//import { sizing } from '@mui/system';
 import Box from '@mui/material/Box';
+import { Typography } from '@mui/material';
+
 
 
 function AboutPage() {

@@ -1,7 +1,8 @@
 import React from 'react';
-//import LogOutButton from '../LogOutButton/LogOutButton';
 import {useSelector} from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { Button, Card, CardContent, Typography, Box } from '@mui/material';
+
 
 function UserPage() {
 
@@ -16,12 +17,24 @@ function UserPage() {
 
   return (
     <div className="container">
-      <h2>Welcome, {user.username}!</h2>
-      <p>Your ID is: {user.id}</p>
-      {/* <LogOutButton className="btn" /> */}
-      <button onClick={clickHandler}>
-        Let's Ask Some Questions!
-      </button>
+      <Box 
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        padding='5%'
+        textAlign='center'
+        sx={{width:'90%'} } >
+        <Card sx={{width: '50%'}}>
+          <CardContent>
+            <Typography padding='1%' variant='h4' textAlign='center' >Welcome,</Typography>
+            <Typography padding='1%' variant='h2' textAlign='center' >{user.username}!</Typography>
+            <Typography variant='h4' textAlign='center'>Your ID is: {user.id}</Typography>
+          </CardContent>
+          <CardContent>
+            <Button variant='contained' onClick={clickHandler}>Let's Ask Some Questions!</Button>
+          </CardContent>
+        </Card>
+      </Box>
     </div>
   );
 }

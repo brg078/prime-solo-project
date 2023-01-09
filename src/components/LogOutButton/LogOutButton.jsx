@@ -1,30 +1,33 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { Button, Typography } from '@material-ui/core';
-import { amber, deepPurple, cyan } from '@material-ui/core/colors';
-import { withStyles} from '@material-ui/core';
+//import { Button, Typography } from '@material-ui/core';
+import  Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+//import { amber, deepPurple, cyan } from '@material-ui/core/colors';
+import { amber, deepPurple, cyan } from '@mui/material/colors';
+//import { withStyles} from '@material-ui/core';
 import { DoNotTouchRounded, SocialDistance } from '@mui/icons-material';
 
 
-const StyledButton = withStyles({
-  root: {
-    backgroundColor:amber[500],
-    color: cyan[500],
+// const StyledButton = withStyles({
+//   root: {
+//     backgroundColor:amber[500],
+//     color: cyan[500],
 
-    '&:hover': {backgroundColor: amber[100], },
-    '&:active': {transform: "scale3d(1.05, 1.05, 1)"}
-  }
-})(Button);
+//     '&:hover': {backgroundColor: amber[100], },
+//     '&:active': {transform: "scale3d(1.05, 1.05, 1)"}
+//   }
+// })(Button);
 
-const StyledTypo = withStyles({
-  root: {
-    color: amber[500],
-    letterSpacing: '0.2rem',
-    textDecoration: 'none',
-    padding: '1rem',
-    '&:hover': {backgroundColor: deepPurple[700], color: cyan[400] },
-  }
-})(Typography);
+// const StyledTypo = withStyles({
+//   root: {
+//     color: amber[500],
+//     letterSpacing: '0.2rem',
+//     textDecoration: 'none',
+//     padding: '1rem',
+//     '&:hover': {backgroundColor: deepPurple[700], color: cyan[400] },
+//   }
+// })(Typography);
 
 
 
@@ -35,7 +38,7 @@ function LogOutButton(props) {
 
   return (
     <>
-      <StyledButton
+      <Button
         size='large'
         variant='outlined'
         style={{
@@ -48,10 +51,10 @@ function LogOutButton(props) {
         onClick={() => dispatch({ type: 'LOGOUT' })}
       >
         Log Out
-      </StyledButton>
-      <StyledTypo>
+      </Button>
+      <Typography>
         Logout
-      </StyledTypo>
+      </Typography>
       </>
   );
 }

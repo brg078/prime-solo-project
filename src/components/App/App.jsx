@@ -25,7 +25,6 @@ import ListOfQuestions from '../ListOfQuestions/ListOfQuestions';
 import { ThemeProvider } from '@emotion/react';
 import theme from '../../theme';
 import './App.css';
-import { List } from '@material-ui/core';
 
 function App() {
   const dispatch = useDispatch();

@@ -2,87 +2,125 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import { useSelector } from 'react-redux';
-import { ThemeProvider, withStyles} from '@material-ui/core';
 import { useTheme } from '@emotion/react';
 import './Nav.css';
-import AppBar from '@mui/material/AppBar';
-
-import Toolbar from '@mui/material/Toolbar';
-
-import Typography from '@mui/material/Typography';
-
-import Container from '@mui/material/Container';
-
-import { amber,deepPurple,cyan } from '@mui/material/colors';
-
-
-
-
-const AmberTextTypography = withStyles({
-  root: {
-    color: amber[500],
-    letterSpacing: '0.2rem',
-    textDecoration: 'none',
-    padding: '1rem',
-    '&:hover': {backgroundColor: deepPurple[600], color: cyan[400] },
-    '&:active': {transform: "scale3d(1.05, 1.05, 1)"}
-
-  }
-})(Typography);
+import MenuIcon from '@mui/icons-material/Menu';
+import { useState } from 'react';
+import { List, Drawer,IconButton, ListItem, ListItemText, Box, Typography, Toolbar, AppBar } from '@mui/material';
 
 
 function Nav() {
   const user = useSelector((store) => store.user);
-  const theme = useTheme();
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
 
   return (
     <div className="nav">
-        <AppBar position='static'>
-          <Container maxWidth="xl" sx={{bgcolor:deepPurple[500]}}>
+        {/* <AppBar position='static'>
             <Toolbar disableGutters  >
-
-
-              <AmberTextTypography variant="h4" component="a" noWrap href='/home'>
+              <Typography variant="h4" component="a" noWrap href='/home'>
                 ASKING FOR A FRIEND!
-              </AmberTextTypography>
+              </Typography>
               <Link className="navLink" to="/about">
-                <AmberTextTypography>
+                <Typography>
                   About
-                </AmberTextTypography>
+                </Typography>
               </Link>
               {user.id && (
                 <>
                   <Link className="navLink" to="/user">
-                    <AmberTextTypography>
+                    <Typography>
                       Home
-                    </AmberTextTypography>
+                    </Typography>
                   </Link>
 
                   <Link className="navLink" to="/info">
-                    <AmberTextTypography>
+                    <Typography>
                       App Info
-                    </AmberTextTypography>
+                    </Typography>
                   </Link>
-
-
-
                   <LogOutButton className="navLink" />
-                    
                 </>
               )}
-
-
-
-
-
-
-
-
-
             </Toolbar>
-          </Container>
+        </AppBar> */}
+
+
+      <Box sx={{ flexGrow: 1 }}>
+        <AppBar position="static">
+          <Toolbar>
+            <IconButton
+              size="large"
+              edge="start"
+              color="inherit"
+              aria-label="menu"
+              sx={{ mr: 2 }}
+              onClick={() => setIsDrawerOpen(true)}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h4" component="div">
+              Asking For A Friend!
+            </Typography>
+            <Drawer open={isDrawerOpen} onClose={() => setIsDrawerOpen(false)}>
+              <List className='menulist'>
+                <ListItem>
+                  {user.id && (
+                    <>
+                      <Link className="navLink" to="/user">
+                        <Typography>
+                          Home
+                        </Typography>
+                      </Link>
+                    </>
+                  )}
+                </ListItem>
+                <ListItem >
+                  <Link className="navLink" to="/about">
+                    <Typography>
+                      About
+                    </Typography>
+                  </Link>
+                </ListItem>
+                <ListItem >
+                  {user.id && (
+                    <>
+                      <Link className="navLink" to="/info">
+                        <Typography>
+                          App Info
+                        </Typography>
+                      </Link>
+                    </>
+                  )}
+                </ListItem>
+                <ListItem >
+                  {user.id && (
+                    <>
+                      <Link className="navLink" to="/questions">
+                        <Typography>
+                          Ask a Question
+                        </Typography>
+                      </Link>
+                    </>
+                  )}
+                </ListItem>
+                <ListItem >
+                  {user.id && (
+                    <>
+                      <Link className="navLink" to="/questions">
+                        <Typography>
+                          List of Questions
+                        </Typography>
+                      </Link>
+                    </>
+                  )}
+                </ListItem>
+              </List>
+            </Drawer>
+            <LogOutButton className="navLink" />
+          </Toolbar>
         </AppBar>
+      </Box>  
     </div>
   );
 }

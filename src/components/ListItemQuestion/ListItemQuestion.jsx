@@ -2,8 +2,12 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Card, CardActionArea, CardHeader, CardContent } from '@mui/material';
 import { amber,deepPurple,cyan,lightGreen, grey } from '@mui/material/colors';
-import { ThemeProvider, withStyles} from '@material-ui/core';
-import { Button, Typography } from '@material-ui/core';
+//import { ThemeProvider, withStyles} from '@material-ui/core';
+//import makeStyles from '@mui/styles/makeStyles';
+import { useState } from 'react';
+//import { Button, Typography } from '@material-ui/core';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 import FormControl from '@mui/material/FormControl';
 import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
@@ -13,72 +17,72 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 
 
 
-const QuestionCard = withStyles({
+// const QuestionCard = withStyles({
     
-    root: {
-        //color: (question.flagged? amber[500]:cyan[500]),
-        raised: true,
-        //minWidth: '1200px',
-        width:'1250px',
-        //maxWidth: '1500px',
-        letterSpacing: '0.2rem',
-        textDecoration: 'none',
-        padding: '1px',
-        margin: '0.5rem',
-        //backgroundColor: deepPurple[500],
-        '&:hover': {transform: "scale3d(1.005, 1.0005, -33)"},
+//     root: {
+//         //color: (question.flagged? amber[500]:cyan[500]),
+//         raised: true,
+//         //minWidth: '1200px',
+//         width:'1250px',
+//         //maxWidth: '1500px',
+//         letterSpacing: '0.2rem',
+//         textDecoration: 'none',
+//         padding: '1px',
+//         margin: '0.5rem',
+//         //backgroundColor: deepPurple[500],
+//         '&:hover': {transform: "scale3d(1.005, 1.0005, -33)"},
 
-    }
-})(Card);
+//     }
+// })(Card);
 
 
-const FormControli = withStyles({
+// const FormControli = withStyles({
     
-    root: {
-        padding: '1px',
-        margin: '0.5rem',
-    }
-})(FormControl);
+//     root: {
+//         padding: '1px',
+//         margin: '0.5rem',
+//     }
+// })(FormControl);
 
 
-const Cardfront = withStyles({
-    root: {
-        color: amber[500],
-        raised: true,
-        // minWidth: '1200px',
-        width:'1000px',
-        // maxWidth: '1500px',
-        letterSpacing: '0.2rem',
-        textDecoration: 'none',
-        padding: '1px',
-        margin: '0.5rem',
-        backgroundColor: deepPurple[500],
-        '&:hover': {backgroundColor: deepPurple[200], color: cyan[400] },
-        //'&:active': {transform: "scale3d(1.05, 1.05, 1)"}
+// const Cardfront = withStyles({
+//     root: {
+//         color: amber[500],
+//         raised: true,
+//         // minWidth: '1200px',
+//         width:'1000px',
+//         // maxWidth: '1500px',
+//         letterSpacing: '0.2rem',
+//         textDecoration: 'none',
+//         padding: '1px',
+//         margin: '0.5rem',
+//         backgroundColor: deepPurple[500],
+//         '&:hover': {backgroundColor: deepPurple[200], color: cyan[400] },
+//         //'&:active': {transform: "scale3d(1.05, 1.05, 1)"}
 
-    }
-})(Card);
+//     }
+// })(Card);
 
-const BottomButton = withStyles({
-    root: {
-        backgroundColor:amber[500],
-        color: cyan[500],
-        margin: '1px',
-        //padding: '1px',
-        '&:hover': {backgroundColor: amber[100], },
-        '&:active': {transform: "scale3d(1.05, 1.05, 1)"}
-    }
-})(Button);
+// const BottomButton = withStyles({
+//     root: {
+//         backgroundColor:amber[500],
+//         color: cyan[500],
+//         margin: '1px',
+//         //padding: '1px',
+//         '&:hover': {backgroundColor: amber[100], },
+//         '&:active': {transform: "scale3d(1.05, 1.05, 1)"}
+//     }
+// })(Button);
 
-const Typographyy = withStyles({
-    root: {
-        padding: '10px',
-        width: 'auto',
-        textAlign: 'left',
-        justifyContent: 'left'
-        //margin: '1px'
-    }
-})(Typography);
+// const Typographyy = withStyles({
+//     root: {
+//         padding: '10px',
+//         width: 'auto',
+//         textAlign: 'left',
+//         justifyContent: 'left'
+//         //margin: '1px'
+//     }
+// })(Typography);
 
 
 function ListItemQuestion(props) {
@@ -115,14 +119,21 @@ function ListItemQuestion(props) {
 
 
     function asker(){
-        let dropDownValue = document.getElementById(question.id).value;
-        console.log('i asked for a friend!', question.id, dropDownValue);
-        dispatch({type: 'ASKED_QUESTION', id: question.id, payload: dropDownValue});
+        //let dropDownValue = document.getElementById(question.id).value;
+        console.log('i asked for a friend!', question.id, askerData);
+        dispatch({type: 'ASKED_QUESTION', id: question.id, payload: askerData});
+    }
 
-}
+    const [askerData, setAsker] = useState('');
+
+    const handleChange = (event) => {
+      setAsker(event.target.value);
+    };
 
 
     return (
+
+
         <>
         {/* <Cardfront>
             <Typographyy padding='px' >
@@ -130,10 +141,16 @@ function ListItemQuestion(props) {
             </Typographyy>
         </Cardfront> */}
 
-        <QuestionCard style={question.approved? {backgroundColor: lightGreen[300]} : {backgroundColor: grey[300]}} >
+        <Card
+            raised
+            mr='0'
+            ml='0'
+            sx={question.approved?
+            {backgroundColor: lightGreen[300], marginTop:'1%', width: '100%',marginLeft:0} :
+            {backgroundColor: grey[300], marginTop:'1%', width: '100%'}} >
             <CardContent>
                 {/* <Typographyy padding='px' >{question.id} USED FOR REFERENCE ONLY</Typographyy> */}
-                <Typographyy>{question.question}, asked by: {question.username}</Typographyy>
+                <Typography>{question.question}, asked by: {question.username}</Typography>
                 
                 
 
@@ -141,7 +158,7 @@ function ListItemQuestion(props) {
                 
             </CardContent>
             <CardContent>
-                <FormControli>
+                {/* <FormControl>
 
                     <select id = {question.id}>
                         <option key={0} value="0"></option>
@@ -152,17 +169,16 @@ function ListItemQuestion(props) {
                         ))}
                     </select>  
 
-                </FormControli>
+                </FormControl> */}
                 <FormControl sx={{ m: 1, width: 300, mt: 3 }}>
-                    <Select>
-                        <MenuItem disabled value="">
-                            <em>Placeholder</em>
+                    <Select id={question.id} onChange={handleChange} >
+                        <MenuItem key={0} value="0">
+                            None
                         </MenuItem>
                             {usersList.map((user) => (
                                 <MenuItem
                                     key={user.id}
                                     value={user.id}
-                                    //style={getStyles(name, personName, theme)}
                                 >
                                     {user.username}
                                 </MenuItem>
@@ -170,16 +186,14 @@ function ListItemQuestion(props) {
                     </Select>
 
                 </FormControl>
-                <BottomButton onClick={asker} >asker</BottomButton>
-                <BottomButton onClick={deleteQuestion}>Delete</BottomButton>
-                <BottomButton onClick={flagQuestion}>Mark As Flagged</BottomButton>
+                <Button variant='contained' sx={{margin:'5px'}} onClick={asker} >Mark As Asked</Button>
+                <Button variant='contained' sx={{margin:'5px'}} onClick={deleteQuestion}>Delete</Button>
+                <Button variant='contained' sx={{margin:'5px'}} onClick={flagQuestion}>Mark As Flagged</Button>
                 {(question.approved?
-                    <BottomButton onClick={approveQuestion}>Disapprove</BottomButton> : <BottomButton  onClick={approveQuestion}>Approve</BottomButton>
+                    <Button variant='contained' sx={{margin:'5px'}} onClick={approveQuestion}>Disapprove</Button> : <Button variant='contained' sx={{margin:'5px'}} onClick={approveQuestion}>Approve</Button>
                 )}
-                {/* <Typographyy>Approved?:{(question.approved? 'Yes':'No')}</Typographyy> */}
-                {/* <Typographyy>Flagged?:{(question.flagged? 'Yes':'No')}</Typographyy> */}
             </CardContent>
-        </QuestionCard>
+        </Card>
         </>
     )
 }

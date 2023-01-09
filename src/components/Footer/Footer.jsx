@@ -1,39 +1,26 @@
 import React from 'react';
-import { deepPurple,amber } from '@material-ui/core/colors';
-import { Typography } from '@material-ui/core';
-import AppBar from '@material-ui/core/AppBar';
-import {makeStyles} from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Toolbar from '@material-ui/core/Toolbar';
+//import { deepPurple,amber } from '@material-ui/core/colors';
+//import { deepPurple, amber } from '@mui/material/colors';
+//import { Typography } from '@material-ui/core';
+import Typography from '@mui/material/Typography';
+//import AppBar from '@material-ui/core/AppBar';
+//import AppBar from '@mui/material/AppBar';
+//import {makeStyles} from '@material-ui/core/styles';
+//import { makeStyles } from '@mui/material';
+//import CssBaseline from '@material-ui/core/CssBaseline';
+//import CssBaseline from '@mui/material';
+//import Toolbar from '@material-ui/core/Toolbar';
+//import { BottomNavigationAction, Toolbar } from '@mui/material';
+import BottomNavigation from '@mui/material/BottomNavigation';
 
-const useStyles = makeStyles((theme) => ({
-  appBar: {
-    top: "auto",
-    bottom: 0,
-    color: amber[500],
-    background: deepPurple[500],
-    //border: 'blue'
-  },
-  typo: {
-    flexGrow: 1,
-    textAlign: "center"
-  }
-}));
+
 
 export default function Footer() {
-  const classes = useStyles();
   return (
-    
-    <React.Fragment>
-      <CssBaseline/>
-      <AppBar className={classes.appBar} >
-        <Toolbar>
-          <Typography className={classes.typo}>
-            Asking for a friend!
-          </Typography>
-        </Toolbar>
-      </AppBar>
-    </React.Fragment>
-    
+    <>
+      <BottomNavigation sx={{ position: 'fixed', bottom: 0, width: 1.0 }}>
+        <Typography>©Brett R. Gebbie // Solo Project // Prime Academy</Typography>
+      </BottomNavigation>
+    </>
   );
 }
