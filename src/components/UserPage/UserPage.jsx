@@ -8,9 +8,9 @@ function UserPage() {
 
   const user = useSelector((store) => store.user);
   const subScore = useSelector((store)=> store.scoresSubmitted);
-  const subScoreDom = JSON.stringify(subScore);
+  //const subScoreDom = JSON.stringify(subScore);
   const askScore = useSelector((store)=> store.scoresAsked);
-  const askScoreDom = JSON.stringify(askScore);
+  //const askScoreDom = JSON.stringify(askScore);
   const history = useHistory();
   const dispatch = useDispatch();
 
@@ -52,8 +52,8 @@ function UserPage() {
             <Typography padding='1%' variant='h4' textAlign='center' >Welcome,</Typography>
             <Typography padding='1%' variant='h2' textAlign='center' >{user.username}!</Typography>
             <Typography variant='h4' textAlign='center'>Your score is: XXX </Typography>
-            <Typography variant='h4' textAlign='center'>You have submitted: {subScoreDom} questions.</Typography>
-            <Typography variant='h4' textAlign='center'>You have asked for a friend {askScoreDom} times!</Typography>
+            <Typography variant='h4' textAlign='center'>You have submitted: {subScore} questions.</Typography>
+            <Typography variant='h4' textAlign='center'>You have asked for a friend {askScore} times!</Typography>
           </CardContent>
           <CardContent>
             <Button variant='contained' onClick={clickHandler}>Let's Ask Some Questions!</Button>
