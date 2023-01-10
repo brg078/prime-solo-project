@@ -5,7 +5,6 @@ import ListItemQuestion from '../ListItemQuestion/ListItemQuestion';
 import Box from '@mui/material/Box';
 import './ListOfQuestions.css';
 import  Button  from '@mui/material/Button';
-import { amber,deepPurple,cyan } from '@mui/material/colors';
 import { Container } from '@mui/system';
 
 
