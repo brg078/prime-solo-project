@@ -17,10 +17,10 @@ import BottomNavigation from '@mui/material/BottomNavigation';
 
 export default function Footer() {
   return (
-    <>
+    <div>
       <BottomNavigation sx={{ position: 'fixed', bottom: 0, width: 1.0 }}>
         <Typography>©Brett R. Gebbie // Solo Project // Prime Academy</Typography>
       </BottomNavigation>
-    </>
+    </div>
   );
 }

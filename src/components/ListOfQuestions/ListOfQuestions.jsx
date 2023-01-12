@@ -8,27 +8,25 @@ import  Button  from '@mui/material/Button';
 import { Container } from '@mui/system';
 
 
-
-
-// const BottomButton = withStyles({
-//     root: {
-//         backgroundColor:amber[500],
-//         color: cyan[500],
-//         margin: '1px',
-//         //padding: '1px',
-//         '&:hover': {backgroundColor: amber[100], },
-//         '&:active': {transform: "scale3d(1.05, 1.05, 1)"}
-//     }
-// })(Button);
-
 function ListOfQuestions(){
     const history = useHistory();
     const dispatch = useDispatch();
     const questions = useSelector(store => store.questionList);
+    const user = useSelector((store) => store.user);
+    
+
 
     useEffect(() => {
         getQuestions();
         userList();
+    }, []);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+        console.log('This will run every second!');
+        getQuestions();
+        }, 60 * 1000);
+        return () => clearInterval(interval);
     }, []);
 
     function userList(){
@@ -51,25 +49,33 @@ function ListOfQuestions(){
         history.push('/questions');
     }
 
+    const goHome = () => {
+        console.log('in goHome');
+        history.push('/user');
+    }
+
 
 
     return (
         <div>
-            <Container disableGutters sx={{minWidth: '90%'}}>
-                <Box sx={{ width: 1, justifyContent: 'center', padding:0}}>
-                        {/* <ul className='mainQuestionList'> */}
+            <Container disableGutters sx={{minWidth: '90%', marginBottom: '100px'}}>
+                <Box sx={{paddingTop: '7%', paddingBottom: '1%', width: '90%', justifyContent: 'center', margin: 'auto',  display: 'flex'}}>
+                    {user.access === 1 && (<>
+                        <Button color='secondary' variant='contained' onClick={returnToAskQuestions} sx={{margin: '2px'}}>Add Questions</Button>
+                        <Button color='secondary' variant='contained' onClick={archiveQuestions} sx={{margin: '2px'}}>End Session / Archive</Button>
+                    </>)}
+                    <Button color='secondary' variant='contained' onClick={getQuestions} sx={{margin: '2px'}} >Refresh Questions List</Button>
+                </Box>
+                <Box sx={{ width: 1, justifyContent: 'center', padding:0, marginBottom:'1px'}}>
                             {questions.map(question => (
-                                // <li key={question.id}>
-                                    <ListItemQuestion key={question.id} question ={question}/>
-                                
+                                    <ListItemQuestion key={question.id} question ={question}/>         
                             ))}
-                        {/* </ul> */}
                 </Box>
-                <Box sx={{padding: '5%', width: '90%', justifyContent: 'center', margin: 'auto', marginBottom:'100px', display: 'flex'}}>
-                    <Button variant='contained' onClick={getQuestions} sx={{margin: '2px'}} >Refresh Questions List</Button>
-                    <Button variant='contained' onClick={archiveQuestions} sx={{margin: '2px'}}>End Session / Archive</Button>
-                    <Button variant='contained' onClick={returnToAskQuestions} sx={{margin: '2px'}}>Add Questions</Button>
-                </Box>
+                {user.access === 0 && (<>
+                    <Box sx={{paddingTop: '2%', paddingBottom: '1%', width: '90%', justifyContent: 'center', margin: 'auto',  display: 'flex'}}>
+                        <Button color='secondary' variant='contained' onClick={goHome} sx={{margin: '2px'}} >Back To Home</Button>
+                    </Box>
+                </>)}
             </Container>
         </div>
     )

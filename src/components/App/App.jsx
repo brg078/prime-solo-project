@@ -21,7 +21,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import Questions from '../Questions/Questions';
 import ListOfQuestions from '../ListOfQuestions/ListOfQuestions';
-
+import Flagged from '../Flagged/Flagged';
 import { ThemeProvider } from '@emotion/react';
 import theme from '../../theme';
 import './App.css';
@@ -38,11 +38,12 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
     <Router>
-      <div>
+      <div className='app'>
         <Nav />
         <Switch>
+          {/* Switched directory to /user */}
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
-          <Redirect exact from="/" to="/home" />
+          <Redirect exact from="/" to="/user" />
 
           {/* Visiting localhost:3000/about will show the about page. */}
           <Route
@@ -87,6 +88,13 @@ function App() {
             path="/info"
           >
             <InfoPage />
+          </ProtectedRoute>
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/flagged"
+          >
+            <Flagged />
           </ProtectedRoute>
 
           <Route

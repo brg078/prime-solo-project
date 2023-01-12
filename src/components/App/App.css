@@ -1,3 +1,21 @@
+.app {
+  background-image: url(
+    "https://img.freepik.com/free-photo/green-dirty-blackboard_125540-774.jpg?w=1380&t=st=1673451325~exp=1673451925~hmac=687edf7f89ad23fe2b1f7b12a7c4ee41be7d4460dcfa28a3d904262ae8386407"
+  );
+  background-size: cover;
+  background-attachment: fixed;
+  height: 500vh;
+  font-size:50px;
+  background-repeat:repeat-y;
+}
+
+
+
+
+    /* "https://as2.ftcdn.net/v2/jpg/01/15/97/75/1000_F_115977583_DWgLaTHyUWrGbSaedYd9KjIagB0Qa7Sd.jpg" */
+
+
+
 /* html,
 body,
 #react-root {

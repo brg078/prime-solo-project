@@ -50,10 +50,10 @@ function Questions(){
                 </CardContent>
                 <CardContent>
                     <TextField sx={{width: '75%'}} placeholder= 'Enter Question' onChange={handleChange} type='text'></TextField>
-                    <Button sx={{padding:'15px',marginLeft:'5px'}}  variant='contained' onClick={submitQuestion}>Submit Question</Button>
+                    <Button sx={{padding:'15px',marginLeft:'5px'}} color='secondary' variant='contained' onClick={submitQuestion}>Submit Question</Button>
                 </CardContent>
                 <CardContent>
-                    <Button variant='contained' onClick={goToQuestionList}>I'll ask next time!</Button>
+                    <Button variant='contained' color='secondary' onClick={goToQuestionList}>I'll ask next time!</Button>
                 </CardContent>
                 </Card>
             </Box>

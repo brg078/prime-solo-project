@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import './LandingPage.css';
+import { Button, Card, CardContent, Typography, Box, CardMedia, Icon, TextField } from '@mui/material';
+
 
 // CUSTOM COMPONENTS
 import RegisterForm from '../RegisterForm/RegisterForm';
@@ -30,7 +32,25 @@ function LandingPage() {
           </center>
         </div>
       </div>
+      <Box 
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        padding='5%'
+        textAlign='center'
+        sx={{width:'90%'} } >
+        <Card sx={{width: '75%'}}>
+          <CardContent>
+            <Typography>hi</Typography>
+          </CardContent>
+        </Card>
+      </Box>
     </div>
+
+
+
+
+
   );
 }
 

@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
   console.log('in server side GET wack question router!');
-  const queryText = `SELECT "user".username, questions.id, questions.question, questions.flagged, questions.approved FROM questions
+  const queryText = `SELECT "user".username, questions.id, questions.question, questions.flagged, questions.approved, questions.goldstar FROM questions
                       JOIN "user" ON "user".id = questions.student_id
                       WHERE questions.archived = false
                       ORDER BY questions.id;`

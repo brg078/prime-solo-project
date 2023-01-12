@@ -1,46 +1,33 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-//import { Button, Typography } from '@material-ui/core';
+import {useSelector, useDispatch} from 'react-redux';
 import  Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-//import { amber, deepPurple, cyan } from '@material-ui/core/colors';
-import { amber, deepPurple, cyan } from '@mui/material/colors';
-//import { withStyles} from '@material-ui/core';
-import { DoNotTouchRounded, SocialDistance } from '@mui/icons-material';
+import {MilitaryTech,} from '@mui/icons-material';
+import { Card } from '@mui/material';
 
 
-// const StyledButton = withStyles({
-//   root: {
-//     backgroundColor:amber[500],
-//     color: cyan[500],
-
-//     '&:hover': {backgroundColor: amber[100], },
-//     '&:active': {transform: "scale3d(1.05, 1.05, 1)"}
-//   }
-// })(Button);
-
-// const StyledTypo = withStyles({
-//   root: {
-//     color: amber[500],
-//     letterSpacing: '0.2rem',
-//     textDecoration: 'none',
-//     padding: '1rem',
-//     '&:hover': {backgroundColor: deepPurple[700], color: cyan[400] },
-//   }
-// })(Typography);
 
 
 
 
 function LogOutButton(props) {
   const dispatch = useDispatch();
-
+  const subScore = useSelector((store)=> store.scoresSubmitted);
+  const askScore = useSelector((store)=> store.scoresAsked);
+  const goldScore = useSelector((store)=> store.scoresGold);
+  const scoreKeeper = parseInt(subScore) + parseInt(askScore)*10 + parseInt(goldScore)*20;
 
   return (
     <>
+
+      {scoreKeeper >=500 &&(<MilitaryTech sx={{color: "#CD7F32", fontSize: "40px"}}></MilitaryTech>)}
+      <Typography style={{marginLeft: '200px'}}>My Score: {scoreKeeper} points</Typography>
+      {scoreKeeper >=100 &&(<MilitaryTech sx={{color: "#CD7F32", fontSize: "40px"}}></MilitaryTech>)}
+
       <Button
         size='large'
-        variant='outlined'
+        color='secondary'
+        variant='contained'
         style={{
           marginLeft: 'auto',
         }}
@@ -52,9 +39,7 @@ function LogOutButton(props) {
       >
         Log Out
       </Button>
-      <Typography>
-        Logout
-      </Typography>
+
       </>
   );
 }

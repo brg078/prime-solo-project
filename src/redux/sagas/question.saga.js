@@ -58,6 +58,17 @@ function* flagQuestion(action){
 }
 
 
+function* goldQuestion(action){
+    console.log('in GOLD_QUESTION SAGA',action.payload);
+    try {
+        yield axios.put(`/approve/gold/${action.payload}`);
+        yield put ({type: 'FETCH_QUESTIONS'});
+    } catch(error) {
+        console.log('error in put gold', error);
+    }
+}
+
+
 function* askedQuestion(action){
     console.log('in PUT ASKED_QUESTION SAGA',action.id,action.payload);
     try {
@@ -88,7 +99,8 @@ function* questionSaga(){
     yield takeLatest('APPROVE_QUESTION', approveQuestion);
     yield takeLatest('FLAG_QUESTION', flagQuestion);
     yield takeLatest('ASKED_QUESTION', askedQuestion);
-    yield takeLatest('ARCHIVE_QUESTIONS', archiveQuestions)
+    yield takeLatest('ARCHIVE_QUESTIONS', archiveQuestions);
+    yield takeLatest('GOLD_QUESTION', goldQuestion);
 }
 
 

@@ -16,39 +16,13 @@ function Nav() {
 
   return (
     <div className="nav">
-        {/* <AppBar position='static'>
-            <Toolbar disableGutters  >
-              <Typography variant="h4" component="a" noWrap href='/home'>
-                ASKING FOR A FRIEND!
-              </Typography>
-              <Link className="navLink" to="/about">
-                <Typography>
-                  About
-                </Typography>
-              </Link>
-              {user.id && (
-                <>
-                  <Link className="navLink" to="/user">
-                    <Typography>
-                      Home
-                    </Typography>
-                  </Link>
-
-                  <Link className="navLink" to="/info">
-                    <Typography>
-                      App Info
-                    </Typography>
-                  </Link>
-                  <LogOutButton className="navLink" />
-                </>
-              )}
-            </Toolbar>
-        </AppBar> */}
 
 
-      <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static">
+
+      <Box display='flex' sx={{ flexGrow: 1 }}>
+        <AppBar position="fixed">
           <Toolbar>
+          {user.access === 1 && (<>
             <IconButton
               size="large"
               edge="start"
@@ -59,6 +33,7 @@ function Nav() {
             >
               <MenuIcon />
             </IconButton>
+            </>)}
             <Typography variant="h4" component="div">
               Asking For A Friend!
             </Typography>
@@ -107,7 +82,7 @@ function Nav() {
                 <ListItem >
                   {user.id && (
                     <>
-                      <Link className="navLink" to="/questions">
+                      <Link className="navLink" to="/list">
                         <Typography>
                           List of Questions
                         </Typography>
@@ -115,9 +90,20 @@ function Nav() {
                     </>
                   )}
                 </ListItem>
+                <ListItem >
+                  {user.id && (
+                    <>
+                      <Link className="navLink" to="/flagged">
+                        <Typography>
+                          Student Question History
+                        </Typography>
+                      </Link>
+                    </>
+                  )}
+                </ListItem>
               </List>
             </Drawer>
-            <LogOutButton className="navLink" />
+            {user.id && (<><LogOutButton className="navLink" /></>) }
           </Toolbar>
         </AppBar>
       </Box>  
@@ -126,43 +112,4 @@ function Nav() {
 }
 
 export default Nav;
-
-
-//               // {/* If a user is logged in, show these links */}
-// <Link className="navLink" to="/about" sx={{color: amber}} >
-//                   About
-//                 </Link>
-//                 {user.id && (
-//                   <>
-//                     <Link className="navLink" to="/user">
-//                       Home
-//                     </Link>
-//                     <Link className="navLink" to="/info">
-//                       Info Page
-//                     </Link>
-//                     <LogOutButton className="navLink" />
-//                   </>
-// )}
-
-
-
-
-
-
-
-// {/* <div>
-// {/* If no user is logged in, show these links */}
-// {!user.id && (
-//   // If there's no user, show login/registration links
-//   <Link className="navLink" to="/login">
-//     Login / Register
-//   </Link>
-// )}
-
-// </div> */}
-
-
-{/* <Link className="navLink" to="/about">
-About
-</Link> */}
 

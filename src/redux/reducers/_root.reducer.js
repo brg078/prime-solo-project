@@ -5,6 +5,8 @@ import scoresAsked from './scoresAsked.reducer'
 import user from './user.reducer';
 import usersListReducer from './userslist.reducer';
 import questionList from './questionlist.reducer';
+import questionFlaggedList from './flagged.reducer';
+import scoresGold from './scoresGoldStar.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -18,7 +20,9 @@ const rootReducer = combineReducers({
   questionList, //list of questions
   usersListReducer,
   scoresSubmitted,
-  scoresAsked
+  scoresAsked,
+  questionFlaggedList,
+  scoresGold
 });
 
 export default rootReducer;

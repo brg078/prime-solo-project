@@ -33,6 +33,21 @@ router.put('/flag/:id', (req, res) => {
 })
 
 
+router.put('/gold/:id', (req, res) => {
+    const id = [req.params.id];
+    console.log('in PUT gold router',id);
+    const queryText = `UPDATE questions SET goldstar = true WHERE id = $1;`;
+    const queryValues = id;
+
+    pool.query(queryText,queryValues)
+    .then(() => {res.sendStatus(200) })
+    .catch((error) => {
+        console.log('Error in UPDATE server approve', error);
+        res.sendStatus(500);
+    })
+})
+
+
 router.put('/asked/:id', (req, res) => {
     const id = req.params.id;
     const idAsk = req.body.askId;
