@@ -71,73 +71,7 @@ function Nav() {
       <Box display='flex' sx={{ flexGrow: 1, width:1 }}>
       
         <AppBar position="fixed" sx={{bgcolor: "rgba(0,0,0,0)", width:'100%'}}>
-
-
-        <Grid container sx={{width:'100%'}}>
-
-          <Toolbar sx={{width:1}}>
-
-          <Grid xs={1} xl={1}>
-            <Item>AFAF</Item>
-          </Grid>
-
-          <Grid xs={0.5} xl={0.5} textAlign='center'>
-            <Item>
-              {user.access === 1 && (<>
-                <IconButton
-                  size="xl"
-                  edge="start"
-                  color="inherit"
-                  aria-label="menu"
-                  //sx={{ mr: 1 }}
-                  onClick={() => setIsDrawerOpen(true)}
-                  >
-                  <MenuIcon sx={{fontSize:"40px"}}/>
-                </IconButton>
-              </>)}
-            </Item>
-          </Grid>
-
-          <Grid xs={4.5} xl={4.5}>
-            <Item>
-              <Typography variant="h3" component="div">
-                Asking For A Friend!
-              </Typography>
-            </Item>
-          </Grid>
-
-          <Grid xs={2.5} xl={2.5}>
-            <Item>
-
-            </Item>
-          </Grid>
-
-
-
-          <Grid xs={3} xl={3} textAlign='right' display="flex" justifyContent="right" alignItems="bottom">
-            <Item>
-              <Typography variant='h5'>My Score: {scoreKeeper} points</Typography>
-            </Item>
-          </Grid>
-
-          <Grid xs={0.5} xl={0.5}>
-            <Item>
-                {scoreKeeper >=500 &&(<MilitaryTech sx={{color: "#CD7F32", fontSize: "40px"}}></MilitaryTech>)}
-                {scoreKeeper >=100 &&(<MilitaryTech sx={{color: "#CD7F32", fontSize: "40px"}}></MilitaryTech>)}
-                {scoreKeeper >=0 &&(<MilitaryTech sx={{color: "#FFFFFF", fontSize: "40px"}}></MilitaryTech>)}
-            </Item>
-          </Grid>
-
-          <Grid xs={1} xl={1}>
-            <Item>
-              {user.id && (<><LogOutButton className="navLink" /></>) }
-            </Item>
-          </Grid>
-
-
-
-
-            <Drawer open={isDrawerOpen} onClose={() => setIsDrawerOpen(false)}>
+          <Drawer open={isDrawerOpen} onClose={() => setIsDrawerOpen(false)}>
               <List className='menulist'>
                 <ListItem>
                   {user.id && (
@@ -202,24 +136,42 @@ function Nav() {
                   )}
                 </ListItem>
               </List>
-            </Drawer>
-
-
-
-          </Toolbar>
-
-          </Grid>
-          <div>
-                  <div className='containert'>
-                      <div className='containerstart'>
-                        <div>One!</div>
-                        <div>Two!</div>
-                      </div>
-                      <div className='containertend'>
-                        <div>Three!</div>
-                        <div>Four!</div>
-                        </div>
+          </Drawer>
+            <div>
+              <div className='containert'>
+                <div className='containerstart'>
+                  {user.access === 1 && (<>
+                    <IconButton
+                      size="xl"
+                      edge="start"
+                      color="inherit"
+                      aria-label="menu"
+                      sx={{ mr: 1, ml: 1 }}
+                      onClick={() => setIsDrawerOpen(true)}
+                      >
+                      <MenuIcon sx={{fontSize:"40px"}}/>
+                    </IconButton>
+                  </>)}
+                  <Typography sx={{ mt: 1}} variant="h3" component="div">Asking For A Friend!</Typography>
+                </div>
+                <div className='containertend'>
+                  <div className='scorekeeper'>
+                    <Typography sx={{mr: 1}} variant='h5'>My Score: {scoreKeeper}</Typography>
                   </div>
+                  <div className='medal'>
+
+                    {scoreKeeper >=500 &&(<MilitaryTech sx={{color: "#CD7F32", fontSize: "50px"}}></MilitaryTech>)}
+                    {scoreKeeper >=100 &&(<MilitaryTech sx={{color: "#CD7F32", fontSize: "40px"}}></MilitaryTech>)}
+                    {scoreKeeper >=0 &&(<MilitaryTech sx={{color: "#FFFFFF", fontSize: "60px"}}></MilitaryTech>)}
+
+
+                  </div>
+                  <div className='logggout'>
+                    {user.id && (<><LogOutButton className="navLink" /></>) }
+                  </div>
+
+                </div>
+          </div>
           </div>
 
         </AppBar>

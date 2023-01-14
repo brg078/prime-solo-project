@@ -54,8 +54,8 @@
 } */
 
 .containert{
-  border: 5px solid #ffcc5c;
   display: flex;
+  justify-content: space-between;
 }
 
 .containert > div{
@@ -65,9 +65,34 @@
 }
 
 .containertend{
-  align-items: flex-end;
+  display: flex;
+  justify-content: center;
+  /* margin: auto; */
+  margin-top: auto;
+  margin-bottom: auto;
+
 }
 
 .containerstart{
-  align-items: flex-start;
+  display: flex;
+  text-align: center;
+  padding-top: 1%;
+  padding-right: 1%;
+
+}
+
+.medal{
+  margin-right: 8%;
+  margin-top: 2.5%;
+  margin-bottom: 0%;
+  padding-bottom: 0%;
+}
+
+.scorekeeper{
+margin-top: 1%;
+}
+
+.logggout{
+  margin-top: 1%;
+  margin-right: 5%;
 }
