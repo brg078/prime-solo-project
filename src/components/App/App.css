@@ -1,18 +1,23 @@
-.app {
-  background-image: url(
-    "https://img.freepik.com/free-photo/green-dirty-blackboard_125540-774.jpg?w=1380&t=st=1673451325~exp=1673451925~hmac=687edf7f89ad23fe2b1f7b12a7c4ee41be7d4460dcfa28a3d904262ae8386407"
-  );
+body {
+  background: url(
+    "https://wallpapercave.com/wp/wp7495795.jpg"
+  ) no-repeat center fixed;
   background-size: cover;
   background-attachment: fixed;
-  height: 500vh;
+  /* height: 500vh;
+  width: 100vw; */
   font-size:50px;
   background-repeat:repeat-y;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
 }
 
 
 
 
     /* "https://as2.ftcdn.net/v2/jpg/01/15/97/75/1000_F_115977583_DWgLaTHyUWrGbSaedYd9KjIagB0Qa7Sd.jpg" */
+    /* https://wallup.net/wp-content/uploads/2019/09/903444-physics-equation-mathematics-math-formula-poster-science-text-typography.jpg */
+    
 
 
 

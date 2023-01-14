@@ -1,0 +1,9 @@
+.logOut {
+ display: flex ;
+ gap: 20px;
+}
+
+.whatever{
+    display: flex;
+    flex-grow: 7;
+}

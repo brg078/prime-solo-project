@@ -9,17 +9,17 @@
   overflow: hidden;
 } */
 
-.nav a {
+/* .nav a {
   text-decoration: none;
-}
+} */
 
 /* .nav a:hover {
   background-color: rgba(47, 0, 155, 0.236);
 } */
 
-.nav a:active {
+/* .nav a:active {
   background-color: rgba(255, 255, 0, 0.139);
-}
+} */
 
 /* .nav-title {
   font-size: 24px;
@@ -52,3 +52,22 @@
 /* h3:hover {
   background-color: #ff0000;
 } */
+
+.containert{
+  border: 5px solid #ffcc5c;
+  display: flex;
+}
+
+.containert > div{
+  padding: 10px;
+  text-align: center;
+  font-size: 1em;
+}
+
+.containertend{
+  align-items: flex-end;
+}
+
+.containerstart{
+  align-items: flex-start;
+}

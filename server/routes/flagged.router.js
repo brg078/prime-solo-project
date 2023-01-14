@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get('/flagged/:id', (req,res) => {
     console.log('in GET flagged router', req.params.id);
-    const queryText = `SELECT "user".username, questions.question, questions.flagged, questions.approved, questions.asker_id FROM questions
+    const queryText = `SELECT "user".username, questions.question, questions.flagged, questions.approved, questions.asker_id,questions.goldstar FROM questions
     JOIN "user" ON "user".id = questions.student_id
     WHERE "user".id = $1
     ORDER BY questions.id;`

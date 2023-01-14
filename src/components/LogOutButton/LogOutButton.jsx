@@ -4,6 +4,7 @@ import  Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import {MilitaryTech,} from '@mui/icons-material';
 import { Card } from '@mui/material';
+//import './LogOutButton.css'
 
 
 
@@ -12,18 +13,14 @@ import { Card } from '@mui/material';
 
 function LogOutButton(props) {
   const dispatch = useDispatch();
-  const subScore = useSelector((store)=> store.scoresSubmitted);
-  const askScore = useSelector((store)=> store.scoresAsked);
-  const goldScore = useSelector((store)=> store.scoresGold);
-  const scoreKeeper = parseInt(subScore) + parseInt(askScore)*10 + parseInt(goldScore)*20;
+
 
   return (
-    <>
+    <div className='logOut'>
+      <div className='whatever'></div>
+      <div>
 
-      {scoreKeeper >=500 &&(<MilitaryTech sx={{color: "#CD7F32", fontSize: "40px"}}></MilitaryTech>)}
-      <Typography style={{marginLeft: '200px'}}>My Score: {scoreKeeper} points</Typography>
-      {scoreKeeper >=100 &&(<MilitaryTech sx={{color: "#CD7F32", fontSize: "40px"}}></MilitaryTech>)}
-
+      </div>
       <Button
         size='large'
         color='secondary'
@@ -40,7 +37,7 @@ function LogOutButton(props) {
         Log Out
       </Button>
 
-      </>
+      </div>
   );
 }
 

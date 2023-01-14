@@ -20,13 +20,7 @@ function UserPage() {
   loadSubmitted();
   loadAsked();
   loadGoldStar();
-  scoreTracker();
   }, []);
-
-
-  function scoreTracker(){
-
-  }
 
 
   function loadSubmitted(){
@@ -58,6 +52,7 @@ function UserPage() {
     <div className="container">
       <Box 
         display="flex"
+        marginTop='5%'
         justifyContent="center"
         alignItems="center"
         padding='5%'

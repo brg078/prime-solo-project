@@ -3,6 +3,18 @@ import { Container } from '@mui/system';
 import React, {useEffect, useState} from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import ListFlaggedQuestion from "../ListFlaggedQuestion/ListFlaggedQuestion";
+import Grid from '@mui/material/Unstable_Grid2';
+import Paper from '@mui/material/Paper';
+import { experimentalStyled as styled } from '@mui/material/styles';
+
+
+// const Item = styled(Paper)(({ theme }) => ({
+//     backgroundColor: '#1A2027',
+//     padding: theme.spacing(2),
+//     textAlign: 'center',
+//     color: 'primary',
+// }));
+
 
 
 function Flagged (){
@@ -33,14 +45,9 @@ function Flagged (){
         setAsker(event.target.value);
         console.log(askerData, event.target.value);
         dispatch({type: 'FETCH_FLAGGED', id: event.target.value});
-
-        //asker();
     };
 
-    // function asker(){
-    //     console.log('i asked for a friend!', askerData);
-    //     getFlaggedQuestions();
-    // }
+
 
 
 
@@ -80,6 +87,17 @@ function Flagged (){
                                     <ListFlaggedQuestion key={question.id} question ={question}/>         
                             ))}
                 </Box>
+                {/* <Box sx={{ flexGrow: 1 }}>
+                    <Grid>
+                        {flaggedQuestions.map(question => (
+                            <Grid key={question.id}>
+                                <Item>
+                                <ListFlaggedQuestion key={question.id} question ={question}/>
+                                </Item>
+                            </Grid>
+                        ))}
+                    </Grid>
+                </Box> */}
             </>)}
         </Container>
         </>

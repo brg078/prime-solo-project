@@ -21,6 +21,7 @@ function ListItemQuestion(props) {
     const usersList = useSelector(store => store.usersListReducer);
     const user = useSelector((store) => store.user);
     const [askerData, setAsker] = useState('');
+    
 
 
 

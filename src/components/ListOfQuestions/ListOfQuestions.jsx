@@ -13,21 +13,50 @@ function ListOfQuestions(){
     const dispatch = useDispatch();
     const questions = useSelector(store => store.questionList);
     const user = useSelector((store) => store.user);
+
+
+
+
     
 
 
     useEffect(() => {
         getQuestions();
         userList();
+        loadSubmitted();
+        loadAsked();
+        loadGoldStar();
     }, []);
 
     useEffect(() => {
         const interval = setInterval(() => {
         console.log('This will run every second!');
         getQuestions();
+        loadSubmitted();
+        loadAsked();
+        loadGoldStar();
         }, 60 * 1000);
         return () => clearInterval(interval);
     }, []);
+
+
+    function loadSubmitted(){
+        console.log('in loadSubmitted', user.id);
+        dispatch({type: 'FETCH_SUBMITTED', payload: user.id})
+    }
+    
+    
+    function loadAsked(){
+        console.log('in loadAsked', user.id);
+        dispatch({type: 'FETCH_ASKED', payload: user.id});
+    }
+    
+    
+    function loadGoldStar(){
+        console.log('inloadGoldStar', user.id);
+        dispatch({type: 'FETCH_GOLDSTARS', payload: user.id});
+    }
+
 
     function userList(){
         dispatch({type: 'FETCH_USERS'});  
