@@ -68,8 +68,8 @@ function RegisterForm() {
   alignItems="center"
   padding='5%'
   textAlign='center'
-  sx={{width:'90%'} }>
-  <Card sx={{width: '75%'}}>
+  sx={{width:'90%', marginTop: '3%'} }>
+  <Card sx={{width: '75%',backgroundColor: '#F0F8FF'}}>
     <CardContent>
       <Typography>Register User</Typography>
       {errors.registrationMessage && (

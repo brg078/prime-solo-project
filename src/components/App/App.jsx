@@ -5,14 +5,10 @@ import {
   Route,
   Switch,
 } from 'react-router-dom';
-
 import { useDispatch, useSelector } from 'react-redux';
-
 import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
-
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
-
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
@@ -22,8 +18,6 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import Questions from '../Questions/Questions';
 import ListOfQuestions from '../ListOfQuestions/ListOfQuestions';
 import Flagged from '../Flagged/Flagged';
-import { ThemeProvider } from '@emotion/react';
-import theme from '../../theme';
 import './App.css';
 
 function App() {
@@ -36,7 +30,6 @@ function App() {
   }, [dispatch]);
 
   return (
-    <ThemeProvider theme={theme}>
     <Router>
       <div className='app'>
         <Nav />
@@ -147,7 +140,6 @@ function App() {
         <Footer />
       </div>
     </Router>
-    </ThemeProvider>
   );
 }
 

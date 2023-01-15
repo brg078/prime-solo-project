@@ -8,20 +8,16 @@ import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
 
 const theme= createTheme({
   palette:{
-      // mode: 'dark',
       background: {
-          default: '#0B132B',
-      //     paper: '#1C2541'
+          default: '#F0F8FF',
       },
       primary: {
-          main: '#5BC0BE',
+          main: '#34BBFB',
       },
       secondary: {
           main: '#C3C3C3',
       },
-      // text: {
-      //     primary: '#F8F8F8'
-      // }
+
   },
 
 
@@ -29,16 +25,6 @@ const theme= createTheme({
     fontFamily:'andale mono'
   }
 
-
-  // components: {
-  //     MuiTooltip: {
-  //         styleOverrides: {
-  //             tooltip: {
-  //                 backgroundColor: '#0B132B'
-  //             }
-  //         }
-  //     }
-  // }
 });
 
 
@@ -53,23 +39,3 @@ ReactDOM.render(
   </>,
   document.getElementById('react-root'),
 );
-
-
-// ReactDOM.render(
-//   <Provider store={store}>
-//     <App />
-//   </Provider>,
-//   document.getElementById('react-root'),
-// );
-
-
-// root.render(
-//   <React.StrictMode>
-//       <ThemeProvider theme={theme}>
-//           <CssBaseline />
-//           <Provider store={store}>
-//               <App />
-//           </Provider>
-//       </ThemeProvider>
-//   </React.StrictMode>
-// );

@@ -1,7 +1,7 @@
 import React from 'react';
 import LoginForm from '../LoginForm/LoginForm';
 import { useHistory } from 'react-router-dom';
-import { Button, Card, CardContent, Typography, Box, CardMedia, Icon } from '@mui/material';
+import { Button, Typography, Box} from '@mui/material';
 
 
 function LoginPage() {
@@ -10,25 +10,13 @@ function LoginPage() {
   return (
     <div>
       <LoginForm />
-{/* 
-      <center>
-        <button
-          type="button"
-          className="btn btn_asLink"
-          onClick={() => {
-            history.push('/registration');
-          }}
-        >
-          Register
-        </button>
-      </center> */}
       <Box 
         display="flex"
         justifyContent="center"
         alignItems="center"
         padding='0.5%'
         textAlign='center'
-        sx={{width:'99%'} } >
+        sx={{width:'99%', marginTop:'5%'} } >
         <Button 
           color='secondary'
           type="button"

@@ -8,15 +8,6 @@ import Paper from '@mui/material/Paper';
 import { experimentalStyled as styled } from '@mui/material/styles';
 
 
-// const Item = styled(Paper)(({ theme }) => ({
-//     backgroundColor: '#1A2027',
-//     padding: theme.spacing(2),
-//     textAlign: 'center',
-//     color: 'primary',
-// }));
-
-
-
 function Flagged (){
     const user = useSelector((store) => store.user);
     const flaggedQuestions = useSelector((store) => store.questionFlaggedList);
@@ -26,15 +17,10 @@ function Flagged (){
 
 
     useEffect(() => {
-        //getFlaggedQuestions();
         userList();
     }, []);
 
 
-    // const getFlaggedQuestions = () => {
-    //     console.log('in getFlaggedQuestions');
-    //     dispatch({type: 'FETCH_FLAGGED', id: askerData});
-    // }
 
     function userList(){
         dispatch({type: 'FETCH_USERS'});  
@@ -57,47 +43,35 @@ function Flagged (){
         
 
         <>
-        <Container disableGutters sx={{minWidth: '90%', marginBottom: '100px',marginTop: '60px'}}>
+        <Container disableGutters sx={{minWidth: '90%', marginBottom: '100px',marginTop: '6%'}}>
             {user.access === 1 && (<>
                 <Box sx={{padding: '1%', marginTop: '5%',width: '90%', justifyContent: 'center', margin: 'auto',  display: 'flex'}}>
-                    <Card sx={{backgroundColor: 'primary', marginTop:'1%', width: '50%', justifyContent: 'center', display: 'flex'}}>
+                    <Card sx={{backgroundColor: '#F0F8FF', marginTop:'1%', width: '50%', justifyContent: 'center', display: 'flex'}}>
                         <CardContent  sx={{justifyContent:'center'}}>
-                            {/* <Typography>{JSON.stringify(user)}</Typography> */}
                             <Typography textAlign='center'>Student Question History</Typography>
-                            <FormControl sx={{ m: 1, width: 300, justifyContent: 'center', display: 'flex'}}>
-                                <Select sx={{justifyContent: 'center', display: 'flex'}} onChange={handleChange} >
-                                    {/* <MenuItem key={0} value="0">
-                                        None
-                                    </MenuItem> */}
+                            <FormControl sx={{ m: 1, width: 300, justifyContent: 'center', display: 'flex', fontSize:'20px'}}>
+                                <Select sx={{justifyContent: 'center', display: 'flex', fontSize:'20px'}} onChange={handleChange} >
+
                                         {usersList.map((userlist) => (
                                             <MenuItem
                                                 key={userlist.id}
-                                                value={userlist.id}>
+                                                value={userlist.id}
+                                                sx={{fontSize:'20px'}}  >
                                                 {userlist.username}
                                             </MenuItem>
                                         ))}
                                 </Select>
                             </FormControl>
-                            {/* <Button variant='contained' sx={{margin:'5px'}} onClick={asker}>Choose a Student</Button> */}
                         </CardContent>
                     </Card>
                 </Box>
                 <Box sx={{ width: 1, justifyContent: 'center', padding:0, marginBottom:'1px'}}>
+                    {/* <Grid container spacing={2}> */}
                             {flaggedQuestions.map(question => (
                                     <ListFlaggedQuestion key={question.id} question ={question}/>         
                             ))}
+                            {/* </Grid> */}
                 </Box>
-                {/* <Box sx={{ flexGrow: 1 }}>
-                    <Grid>
-                        {flaggedQuestions.map(question => (
-                            <Grid key={question.id}>
-                                <Item>
-                                <ListFlaggedQuestion key={question.id} question ={question}/>
-                                </Item>
-                            </Grid>
-                        ))}
-                    </Grid>
-                </Box> */}
             </>)}
         </Container>
         </>

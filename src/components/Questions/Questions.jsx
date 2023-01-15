@@ -28,10 +28,6 @@ function Questions(){
         history.push('/list');
     }
 
-    const cardStyle = {
-        width: '100%'
-    }
-
     return(
         <div className='questionsPage'>
             
@@ -39,18 +35,17 @@ function Questions(){
                 display="flex"
                 justifyContent="center"
                 alignItems="center"
+                marginTop='5%'
                 padding='5%'
                 textAlign='center'
                 sx={{width:'90%'} } >
-                <Card raised sx={cardStyle}>
+                <Card raised sx={{width:'100%',backgroundColor: '#F0F8FF'}}>
                 <CardContent>
                     <Typography padding='1%' variant='h4' textAlign='center' >Ask a question for a friend!</Typography>
-                    {/* <Typography padding='1%' variant='h2' textAlign='center' >{user.username}!</Typography>
-                    <Typography variant='h4' textAlign='center'>Your ID is:</Typography> */}
                 </CardContent>
                 <CardContent>
-                    <TextField sx={{width: '75%'}} placeholder= 'Enter Question' onChange={handleChange} type='text'></TextField>
-                    <Button sx={{padding:'15px',marginLeft:'5px'}} color='secondary' variant='contained' onClick={submitQuestion}>Submit Question</Button>
+                    <TextField sx={{width: '75%', marginTop:'2px'}} placeholder= 'Enter Question' onChange={handleChange} type='text'></TextField>
+                    <Button sx={{padding:'15px',marginLeft:'5px', marginBottom:'10px'}} color='secondary' variant='contained' onClick={submitQuestion}>Submit Question</Button>
                 </CardContent>
                 <CardContent>
                     <Button variant='contained' color='secondary' onClick={goToQuestionList}>I'll ask next time!</Button>

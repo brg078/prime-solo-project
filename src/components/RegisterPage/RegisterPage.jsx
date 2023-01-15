@@ -3,8 +3,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import RegisterForm from '../RegisterForm/RegisterForm';
 
-import { Button, Card, CardContent, Typography, Box, CardMedia, Icon } from '@mui/material';
-import { Star } from '@mui/icons-material';
+import { Button, Typography, Box} from '@mui/material';
 
 function RegisterPage() {
   const history = useHistory();
@@ -12,24 +11,13 @@ function RegisterPage() {
   return (
     <div>
       <RegisterForm />
-      {/* <center>
-        <button
-          type="button"
-          className="btn btn_asLink"
-          onClick={() => {
-            history.push('/login');
-          }}
-        >
-          Login
-        </button>
-      </center> */}
       <Box 
         display="flex"
         justifyContent="center"
         alignItems="center"
         padding='0.5%'
         textAlign='center'
-        sx={{width:'99%'} } >
+        sx={{width:'99%', marginTop:'5%'} } >
         <Button
           color='secondary'
           onClick={() => {history.push('/login');}}

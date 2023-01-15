@@ -87,7 +87,8 @@ function ListOfQuestions(){
 
     return (
         <div>
-            <Container disableGutters sx={{minWidth: '90%', marginBottom: '100px'}}>
+            <Container disableGutters sx={{minWidth: '90%', marginBottom: '100px',        marginTop:'5%'
+}}>
                 <Box sx={{paddingTop: '7%', paddingBottom: '1%', width: '90%', justifyContent: 'center', margin: 'auto',  display: 'flex'}}>
                     {user.access === 1 && (<>
                         <Button color='secondary' variant='contained' onClick={returnToAskQuestions} sx={{margin: '2px'}}>Add Questions</Button>

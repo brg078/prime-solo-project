@@ -2,55 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import { useSelector } from 'react-redux';
-import { useTheme } from '@emotion/react';
 import './Nav.css';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useState } from 'react';
-import { List, Drawer,IconButton, ListItem, ListItemText, Box, Typography, Toolbar, AppBar } from '@mui/material';
-import Grid from '@mui/material/Unstable_Grid2';
-import Paper from '@mui/material/Paper';
-import { experimentalStyled as styled } from '@mui/material/styles';
-import {Diversity2TwoTone, MilitaryTech,} from '@mui/icons-material';
-import { height } from '@mui/system';
-import { end } from '@popperjs/core';
-
-
-
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: 'rgba(0,0,0,0)',
-  padding: theme.spacing(1),
-  height:'100%',
-  color: '#FFFFFF',
-  fontFamily: 'andale mono',
-  fontSize: 20,
-  outline: 'px',
-  outlineStyle:'none',
-  grid: {
-    '&>.MuiDataGrid-main': {
-      '&>.MuiDataGrid-columnHeaders': {
-        borderBottom: 'none',
-      },
-    
-      '& div div div div >.MuiDataGrid-cell': {
-        borderBottom: 'none',
-      },
-  
-    }},
-    components: {
-      MuiDataGrid: {
-          styleOverrides: {
-              root: {
-                  border: 'none'
-              }
-          }
-      }
-  },
-}
-
-));
-
-
-
+import { List, Drawer,IconButton, ListItem,Box, Typography, AppBar } from '@mui/material';
+import {MilitaryTech,} from '@mui/icons-material';
 
 
 
@@ -63,6 +19,19 @@ function Nav() {
   const scoreKeeper = parseInt(subScore) + parseInt(askScore)*10 + parseInt(goldScore)*20;
 
 
+  function medalCount(scoreKeeper){
+    if (scoreKeeper < 100){
+      return(<MilitaryTech sx={{color: "#FFFFFF", fontSize: "60px"}}></MilitaryTech>); 
+    } else if (scoreKeeper < 250){
+      return((<MilitaryTech sx={{color: "#CD7F32", fontSize: "60px"}}></MilitaryTech>));
+    } else if (scoreKeeper < 500){
+      return((<MilitaryTech sx={{color: "#AAA9AD", fontSize: "60px"}}></MilitaryTech>));
+    } else {
+      return((<MilitaryTech sx={{color: "#F9F295", fontSize: "60px"}}></MilitaryTech>));
+    }
+  }
+
+
   return (
     <div className="nav">
 
@@ -70,14 +39,14 @@ function Nav() {
 
       <Box display='flex' sx={{ flexGrow: 1, width:1 }}>
       
-        <AppBar position="fixed" sx={{bgcolor: "rgba(0,0,0,0)", width:'100%'}}>
-          <Drawer open={isDrawerOpen} onClose={() => setIsDrawerOpen(false)}>
+        <AppBar position="fixed" sx={{bgcolor: "#34BBFB", width:'100%'}}>
+          <Drawer bgcolor='#FF0000' sx={{color:'#FF0000'}} open={isDrawerOpen} onClose={() => setIsDrawerOpen(false)}>
               <List className='menulist'>
-                <ListItem>
+                <ListItem >
                   {user.id && (
                     <>
                       <Link className="navLink" to="/user">
-                        <Typography>
+                        <Typography sx={{fontSize:'30px'}}>
                           Home
                         </Typography>
                       </Link>
@@ -86,7 +55,7 @@ function Nav() {
                 </ListItem>
                 <ListItem >
                   <Link className="navLink" to="/about">
-                    <Typography>
+                    <Typography sx={{fontSize:'30px'}}>
                       About
                     </Typography>
                   </Link>
@@ -95,7 +64,7 @@ function Nav() {
                   {user.id && (
                     <>
                       <Link className="navLink" to="/info">
-                        <Typography>
+                        <Typography sx={{fontSize:'30px'}}>
                           App Info
                         </Typography>
                       </Link>
@@ -106,7 +75,7 @@ function Nav() {
                   {user.id && (
                     <>
                       <Link className="navLink" to="/questions">
-                        <Typography>
+                        <Typography sx={{fontSize:'30px'}}>
                           Ask a Question
                         </Typography>
                       </Link>
@@ -117,7 +86,7 @@ function Nav() {
                   {user.id && (
                     <>
                       <Link className="navLink" to="/list">
-                        <Typography>
+                        <Typography sx={{fontSize:'30px'}}>
                           List of Questions
                         </Typography>
                       </Link>
@@ -128,7 +97,7 @@ function Nav() {
                   {user.id && (
                     <>
                       <Link className="navLink" to="/flagged">
-                        <Typography>
+                        <Typography sx={{fontSize:'30px'}}>
                           Student Question History
                         </Typography>
                       </Link>
@@ -160,9 +129,8 @@ function Nav() {
                   </div>
                   <div className='medal'>
 
-                    {scoreKeeper >=500 &&(<MilitaryTech sx={{color: "#CD7F32", fontSize: "50px"}}></MilitaryTech>)}
-                    {scoreKeeper >=100 &&(<MilitaryTech sx={{color: "#CD7F32", fontSize: "40px"}}></MilitaryTech>)}
-                    {scoreKeeper >=0 &&(<MilitaryTech sx={{color: "#FFFFFF", fontSize: "60px"}}></MilitaryTech>)}
+                    {medalCount(scoreKeeper)}
+
 
 
                   </div>

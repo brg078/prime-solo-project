@@ -4,7 +4,14 @@
   text-align: center;
 } */
 
-.footer {
-  background-color: blueviolet;
-  color: blueviolet;
+.footers {
+  display: flex;
+  justify-content: center;
+  margin-top: 7%;
+  /* position: fixed; */
+}
+
+.bottomtext{
+  display: flex;
+
 }

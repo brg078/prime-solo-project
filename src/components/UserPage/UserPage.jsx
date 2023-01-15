@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { Button, Card, CardContent, Typography, Box, CardMedia, Icon } from '@mui/material';
-import { Star, MilitaryTech,} from '@mui/icons-material';
+import { Button, Card, CardContent, Typography, Box} from '@mui/material';
+import { MilitaryTech} from '@mui/icons-material';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 
 function UserPage() {
@@ -46,7 +46,59 @@ function UserPage() {
     history.push('/questions');
   }
 
+  function medalCount(score){
+    if (scoreKeeper < 100){
+      return(
+        <>
+        <Typography variant='h5'>Level: New Friend</Typography>
+        <MilitaryTech sx={{color: "#FFFFFF", fontSize: "60px"}}></MilitaryTech>
+        <Typography variant='h6'>Next Level: Bronze AKA Good Friend (100 Points)</Typography>
+        </>
+      ); 
+    } else if (scoreKeeper < 250){
+      return(
+        <>
+        <Typography variant='h5'>Level: Bronze AKA Good Friend</Typography>
+        <MilitaryTech sx={{color: "#CD7F32", fontSize: "75px"}}></MilitaryTech>
+        <EmojiEventsIcon sx={{color: "#CD7F32", fontSize: "150px"}}></EmojiEventsIcon>
+        <MilitaryTech sx={{color: "#CD7F32", fontSize: "75px"}}></MilitaryTech>
+        <Typography variant='h6'>Next Level: Silver AKA Great Friend (250 Points)</Typography>
+        </>
+      );
+    } else if (scoreKeeper < 500){
+      return(
+        <>
+        <Typography variant='h5'>Level: Silver AKA Great Friend</Typography>
+        <MilitaryTech sx={{color: "#AAA9AD", fontSize: "75px"}}></MilitaryTech>
+        <EmojiEventsIcon sx={{color: "#AAA9AD", fontSize: "150px"}}></EmojiEventsIcon>
+        <MilitaryTech sx={{color: "#AAA9AD", fontSize: "75px"}}></MilitaryTech>
+        <Typography variant='h6'>Next Level: Gold AKA Best Friend (500 Points)</Typography>
+        </>
+      );
+    } else {
+      return(
 
+        <>
+        <Typography variant='h5'>Level: Gold AKA Best Friend</Typography>
+        <MilitaryTech sx={{color: "#F9F295", fontSize: "75px"}}></MilitaryTech>
+        <EmojiEventsIcon sx={{color: "#F9F295", fontSize: "150px"}}></EmojiEventsIcon>
+        <MilitaryTech sx={{color: "#F9F295", fontSize: "75px"}}></MilitaryTech>
+        <Typography variant='h6'>Next Level: Platinum AKA BFF! (1000 Points)</Typography>
+        </>
+      )
+      
+      
+      
+      
+      
+      
+      
+    }
+
+
+
+
+  }
 
   return (
     <div className="container">
@@ -58,19 +110,16 @@ function UserPage() {
         padding='5%'
         textAlign='center'
         sx={{width:'90%'} } >
-        <Card sx={{width: '75%'}}>
+        <Card sx={{width: '75%', backgroundColor:'#F0F8FF'}}>
           <CardContent>
-            {/* <Star sx={{fontSize: "150px"}} color='secondary'></Star> */}
             <Typography padding='1%' variant='h4' textAlign='center' >Welcome,</Typography>
             <Typography padding='2%' variant='h2' textAlign='center' >{user.username}!</Typography>
             {user.access ===1 && (<Typography variant='h4' padding='1%'>Admin Account</Typography>)}
             <Typography variant='h4' textAlign='center' padding='2%'>Your score is: {scoreKeeper} points! </Typography>
-            {scoreKeeper >=100 &&(<Typography variant='h5'>Level: Bronze AKA Good Friend</Typography>)}
-            {scoreKeeper >=100 &&(<MilitaryTech sx={{color: "#CD7F32", fontSize: "75px"}}></MilitaryTech>)}
-            {scoreKeeper >=100 &&(<EmojiEventsIcon sx={{color: "#CD7F32", fontSize: "150px"}}></EmojiEventsIcon>)}
-            {scoreKeeper >=100 &&(<MilitaryTech sx={{color: "#CD7F32", fontSize: "75px"}}></MilitaryTech>)}
-            {scoreKeeper >=100 &&(<Typography variant='h6'>Next Level: Silver AKA Great Friend (500 Points)</Typography>)}
 
+            <div>
+              {medalCount(scoreKeeper)}
+            </div>
             
             <Typography variant='h4' textAlign='center'># of questions you have submitted: {subScore}.</Typography>
             <Typography variant='h4' textAlign='center'># of Gold Star questions you have submitted: {goldScore}.</Typography>
@@ -81,10 +130,6 @@ function UserPage() {
           </CardContent>
         </Card>
       </Box>
-      {/* <Box>
-        <p>{JSON.stringify(user)}</p>
-        <p></p>
-      </Box> */}
     </div>
   );
 }
