@@ -8,8 +8,7 @@ function InfoPage(props) {
     
 
   return (
-    <>
-      <div className="container">
+    <div className="container">
       <Box 
         display="flex"
         justifyContent="center"
@@ -19,39 +18,46 @@ function InfoPage(props) {
         padding='5%'
         textAlign='center'
         sx={{width:'90%'} } >
-        <Card raised sx={{padding: '20px',backgroundColor: '#F0F8FF'}}>
-          <Typography>
-INFO          </Typography>
-          {/* <Typography>
-            Asking For a Friend is a learning tool.It gives a voice to students who would prefer to have someone else ask their questions for them!  Sometimes the best questions go unanswered, and Asking For a Friend can help make sure that happens less often.
+        <Card raised sx={{padding: '20px', backgroundColor: '#F0F8FF', fontSize:'20px'}}>
+          <Typography sx={{fontSize: '30px'}}>
+            Future functionalities:
+          </Typography>
+          <Typography sx={{fontSize: '20px'}}>
+            -Multiple classroom capability     
+          </Typography>
+          <Typography sx={{fontSize: '20px'}}>
+            -Further refinements of the user interface    
+          </Typography>
+          <Typography sx={{fontSize: '20px'}}>
+            -   
           </Typography>
           <Typography>.
           </Typography>
-
-          <Typography>  
-            Why it works:
+          <Typography sx={{fontSize: '30px'}}>  
+            Technologies Used:
           </Typography>
-          <Typography>  
-              AFAF anonymizes students’ questions and encourages their peers to ask those questions. The benefits are threefold: introverted pupils get to have input into the conversation more often, students are subjected to each others lines of inquiry, and it protects students who might feel an otherwise good question would garner them mockery.
+          <Typography sx={{fontSize: '20px'}}>  
+              PostgreSQL, Express, React, Node JS, Material UI, Postico, FavIcon
           </Typography>
           <Typography>
           </Typography>
           <Typography>.
           </Typography>
-          <Typography>
-            How it works:
+          <Typography sx={{fontSize: '30px'}}>
+            Thanks To:
           </Typography>
-          <Typography>
-            Students can enter up to three questions, which are then reviewed by the teacher. Once all submitted questions are reviewed for relevance to the topic at hand, the teacher submits the remaining questions (anonymously) to the whole class.  Students are then allowed to pick any question and ask it to the class.  Alternatively the teacher can ask on the students behalf if no students are willing to speak up.
-          </Typography> */}
+          <Typography sx={{fontSize: '20px'}}>
+            -Dane,Liz, and all the staff at Prime
+          </Typography>
+          <Typography sx={{fontSize: '20px'}}>
+            -My fellow Shawleagues
+          </Typography>
+          <Typography sx={{fontSize: '20px'}}>
+            -My wife and family for supporting me
+          </Typography>
         </Card>
       </Box>
-      </div>
-
-      
-
-      
-    </>
+    </div>
   );
 }
 
