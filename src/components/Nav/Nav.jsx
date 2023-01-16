@@ -7,6 +7,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { useState } from 'react';
 import { List, Drawer,IconButton, ListItem,Box, Typography, AppBar } from '@mui/material';
 import {MilitaryTech,} from '@mui/icons-material';
+//import { use } from 'passport';
 
 
 
@@ -27,7 +28,7 @@ function Nav() {
     } else if (scoreKeeper < 500){
       return((<MilitaryTech sx={{color: "#AAA9AD", fontSize: "60px"}}></MilitaryTech>));
     } else {
-      return((<MilitaryTech sx={{color: "#F9F295", fontSize: "60px"}}></MilitaryTech>));
+      return((<MilitaryTech sx={{color: "#A48111", fontSize: "60px"}}></MilitaryTech>));
     }
   }
 
@@ -125,7 +126,7 @@ function Nav() {
                 </div>
                 <div className='containertend'>
                   <div className='scorekeeper'>
-                    <Typography sx={{mr: 1}} variant='h5'>My Score: {scoreKeeper}</Typography>
+                    <Typography sx={{mr: 1}} variant='h5'>{user.username}'s Score: {scoreKeeper}</Typography>
                   </div>
                   <div className='medal'>
 

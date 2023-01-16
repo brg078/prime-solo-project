@@ -1,9 +1,12 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+const {
+    rejectUnauthenticated,
+} = require('../modules/authentication-middleware');
 
 
-router.get('/flagged/:id', (req,res) => {
+router.get('/flagged/:id', rejectUnauthenticated, (req,res) => {
     console.log('in GET flagged router', req.params.id);
     const queryText = `SELECT "user".username, questions.question, questions.flagged, questions.approved, questions.asker_id,questions.goldstar FROM questions
     JOIN "user" ON "user".id = questions.student_id

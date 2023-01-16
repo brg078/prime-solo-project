@@ -80,9 +80,9 @@ function UserPage() {
 
         <>
         <Typography variant='h5'>Level: Gold AKA Best Friend</Typography>
-        <MilitaryTech sx={{color: "#F9F295", fontSize: "75px"}}></MilitaryTech>
-        <EmojiEventsIcon sx={{color: "#F9F295", fontSize: "150px"}}></EmojiEventsIcon>
-        <MilitaryTech sx={{color: "#F9F295", fontSize: "75px"}}></MilitaryTech>
+        <MilitaryTech sx={{color: "#A48111", fontSize: "75px"}}></MilitaryTech>
+        <EmojiEventsIcon sx={{color: "#A48111", fontSize: "150px"}}></EmojiEventsIcon>
+        <MilitaryTech sx={{color: "#A48111", fontSize: "75px"}}></MilitaryTech>
         <Typography variant='h6'>Next Level: Platinum AKA BFF! (1000 Points)</Typography>
         </>
       )

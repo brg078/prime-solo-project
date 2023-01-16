@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Card, CardContent, Typography, Box, TextField } from '@mui/material';
+import { Card, Typography, Box} from '@mui/material';
 
 
 function InfoPage(props) {
@@ -37,7 +37,7 @@ function InfoPage(props) {
             Technologies Used:
           </Typography>
           <Typography sx={{fontSize: '20px'}}>  
-              PostgreSQL, Express, React, Node JS, Material UI, Postico, FavIcon
+              PostgreSQL, Express, React, Node JS, Material UI, Postico, Postman
           </Typography>
           <Typography>
           </Typography>
@@ -47,7 +47,7 @@ function InfoPage(props) {
             Thanks To:
           </Typography>
           <Typography sx={{fontSize: '20px'}}>
-            -Dane,Liz, and all the staff at Prime
+            -Dane, Liz, and all the staff at Prime
           </Typography>
           <Typography sx={{fontSize: '20px'}}>
             -My fellow Shawleagues

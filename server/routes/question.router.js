@@ -1,9 +1,12 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+const {
+  rejectUnauthenticated,
+} = require('../modules/authentication-middleware');
 
 
-router.get('/', (req, res) => {
+router.get('/',rejectUnauthenticated, (req, res) => {
   console.log('in server side GET wack question router!');
   const queryText = `SELECT "user".username, questions.id, questions.question, questions.flagged, questions.approved, questions.goldstar FROM questions
                       JOIN "user" ON "user".id = questions.student_id
@@ -19,7 +22,7 @@ router.get('/', (req, res) => {
 });
 
 
-router.post('/', (req, res) => {
+router.post('/',rejectUnauthenticated, (req, res) => {
   const questionToAdd = req.body;
   console.log('in wack question router POST! Question:',questionToAdd.question,' Student ID: ',questionToAdd.studentId);
   
@@ -35,7 +38,7 @@ router.post('/', (req, res) => {
 });
 
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id',rejectUnauthenticated, (req, res) => {
   //console.log(req.params.id);
   const queryText = 'DELETE FROM questions WHERE id=$1';
 
