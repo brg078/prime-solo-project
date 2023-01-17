@@ -55,6 +55,14 @@ function InfoPage(props) {
           <Typography sx={{fontSize: '20px'}}>
             -My wife and family for supporting me
           </Typography>
+          <Typography>
+            .
+          </Typography>
+          <Typography>
+            Github: brg078
+            Linkedin: https://www.linkedin.com/in/brett-gebbie-88a51619/
+          </Typography>
+          
         </Card>
       </Box>
     </div>
