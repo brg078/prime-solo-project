@@ -126,11 +126,11 @@ function Nav() {
                 </div>
                 <div className='containertend'>
                   <div className='scorekeeper'>
-                    <Typography sx={{mr: 1}} variant='h5'>{user.username}'s Score: {scoreKeeper}</Typography>
+                    {user.id && (<Typography sx={{mr: 1}} variant='h5'>{user.username}'s Score: {scoreKeeper}</Typography>)}
                   </div>
                   <div className='medal'>
 
-                    {medalCount(scoreKeeper)}
+                    {user.id &&(medalCount(scoreKeeper))}
 
 
 

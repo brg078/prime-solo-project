@@ -126,7 +126,7 @@ function UserPage() {
             <Typography variant='h4' textAlign='center'># of times you have answered for a friend {askScore}.</Typography>
           </CardContent>
           <CardContent>
-            <Button color='secondary' variant='contained' onClick={clickHandler}>Let's Ask Some Questions!</Button>
+            <Button color='secondary' variant='contained' onClick={clickHandler}>Let's Ask A Question!</Button>
           </CardContent>
         </Card>
       </Box>

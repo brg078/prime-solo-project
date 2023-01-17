@@ -28,9 +28,9 @@ function InfoPage(props) {
           <Typography sx={{fontSize: '20px'}}>
             -Further refinements of the user interface    
           </Typography>
-          <Typography sx={{fontSize: '20px'}}>
+          {/* <Typography sx={{fontSize: '20px'}}>
             -   
-          </Typography>
+          </Typography> */}
           <Typography>.
           </Typography>
           <Typography sx={{fontSize: '30px'}}>  

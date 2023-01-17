@@ -23,7 +23,7 @@ function ListFlaggedQuestion(props){
             return(
                 <>
                 
-                <Grid container spacing={2} sx={{marginBottom:'3px'}}>
+                <Grid container spacing={0.5} sx={{marginBottom:'3px'}}>
                     <Grid xs={10} xl={10}>
                         <Item>{question.question}</Item>
                     </Grid>
